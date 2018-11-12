@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://admin/scene_transitions.gd" type="Script" id=1]
+
+[node name="scene_transition" type="Node"]
+
+pause_mode = 2
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="in_timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = true
+autostart = false
+
+[node name="out_timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="in_timer" to="." method="_on_in_timer_timeout"]
+
+[connection signal="timeout" from="out_timer" to="." method="_on_out_timer_timeout"]
+
+
