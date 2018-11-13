@@ -58,7 +58,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ) ]
 }
 
-[node name="Sign" type="Area2D"]
+[node name="Sign" type="Area2D" index="0"]
 
 pause_mode = 2
 scale = Vector2( 3, 3 )

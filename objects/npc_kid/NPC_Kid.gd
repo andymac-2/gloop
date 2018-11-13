@@ -1,6 +1,6 @@
 extends Area2D
 
-export var text = "Insert your text here."
+export (String, MULTILINE) var text = "Insert your text here."
 
 func _ready():
 	$text_parent/label.text = text

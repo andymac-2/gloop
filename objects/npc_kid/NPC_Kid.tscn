@@ -77,7 +77,7 @@ tracks/0/keys = {
 "values": [ 64, 65 ]
 }
 
-[node name="NPC_kid" type="Area2D"]
+[node name="NPC_kid" type="Area2D" index="0"]
 
 pause_mode = 2
 scale = Vector2( 3, 3 )

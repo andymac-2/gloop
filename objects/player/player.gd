@@ -48,6 +48,9 @@ const bullet = preload("res://objects/bullet/bullet.tscn")
 # DAMAGE
 func burn ():
 	damage ()
+	
+func stab():
+	damage()
 		
 func damage ():
 	if INVINCIBLE == state or DEAD == state:
@@ -68,7 +71,15 @@ func _on_invincibility_timer_timeout():
 	$flash_timer.stop()
 	visible = true
 	state = ALIVE
+	
+func _special_collisions (bodyState):
+	for x in range(bodyState.get_contact_count()):
+		var obj = bodyState.get_contact_collider_object(x)
+		if (obj.has_method("is_sharp")):
+			if not "tank" == type:
+				damage()
 
+#init
 func _ready ():
 	$transition.play("in")
 	type = savegame.player_type
@@ -247,12 +258,10 @@ func _mage_action(step):
 # called during physics simulation. 
 func _integrate_forces(s):
 	if DEAD == state:
-		state = ALIVE
 		return
 	
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
-	var ground
 	
 	# Get the controls
 	move_left = Input.is_action_pressed("move_left")
@@ -262,11 +271,14 @@ func _integrate_forces(s):
 	action = Input.is_action_pressed("action")
 	var enter = Input.is_action_pressed("enter")
 	
+	
+	var ground
 	var floor_index = _find_ground(s)
 	if floor_index >= 0:
 		ground = s.get_contact_collider_object(floor_index)
 	
 	lv = _decompensate_ground_inertia(lv)
+	_special_collisions(s)
 
 	match type:
 		"mage":

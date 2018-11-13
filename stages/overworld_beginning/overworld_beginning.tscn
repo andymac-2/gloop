@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tiles/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://objects/level_door/level_door.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=12]
 [ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/gem_door/gem_door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/spikes/spike1.tscn" type="PackedScene" id=15]
 
 [node name="stage" type="Node"]
 
@@ -43,6 +44,8 @@ __meta__ = {
 }
 
 [node name="props" type="Node" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="level_door" parent="props" index="0" instance=ExtResource( 2 )]
 
@@ -125,6 +128,8 @@ position = Vector2( 360, 792 )
 
 [node name="enemies" type="Node" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="tank" parent="enemies" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 488, 792 )
@@ -147,5 +152,19 @@ position = Vector2( 1608, 864 )
 door_name = "crystal_door1"
 dest_scene = "res://stages/test_stage/test_stage.tscn"
 total_crystals = 5
+
+[node name="special_blocks" type="Node" parent="." index="7"]
+
+[node name="spike1" parent="special_blocks" index="0" instance=ExtResource( 15 )]
+
+position = Vector2( 888, 528 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Door" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 192, 816 )
+door_name = "debug1"
+dest_scene = "res://stages/overworld/castle_entrance.tscn"
+state = 1
 
 

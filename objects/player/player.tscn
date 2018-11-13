@@ -495,7 +495,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 6, 3 ) ]
 }
 
-[node name="player" type="RigidBody2D" index="0"]
+[node name="player" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 32

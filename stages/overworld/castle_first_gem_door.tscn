@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tiles/tileset.res" type="TileSet" id=1]
+[ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/key/key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/sign/Sign.tscn" type="PackedScene" id=4]
+[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=5]
+
+[node name="stage" type="Node"]
+
+[node name="tile_map" type="TileMap" parent="." index="0"]
+
+scale = Vector2( 3, 3 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 44, 0, 2, 44, 0, 4, 44, 0, 6, 44, 0, 8, 44, 0, 10, 44, 0, 12, 44, 0, 14, 44, 0, 16, 44, 0, 18, 44, 0, 20, 44, 0, 22, 44, 0, 65536, 45, 0, 65537, 44, 0, 65539, 44, 0, 65541, 44, 0, 65543, 44, 0, 65545, 44, 0, 65547, 44, 0, 65549, 44, 0, 65551, 44, 0, 65553, 44, 0, 65555, 44, 0, 65557, 44, 0, 131072, 44, 0, 131074, 44, 0, 131076, 44, 0, 131078, 44, 0, 131080, 44, 0, 131082, 44, 0, 131084, 44, 0, 131086, 44, 0, 131088, 44, 0, 131090, 44, 0, 131092, 44, 0, 131094, 44, 0, 196608, 45, 0, 196609, 44, 0, 196611, 44, 0, 196613, 44, 0, 196615, 44, 0, 196617, 44, 0, 196619, 44, 0, 196621, 44, 0, 196623, 44, 0, 196625, 44, 0, 196627, 44, 0, 196629, 44, 0, 262144, 44, 0, 262146, 44, 0, 262148, 44, 0, 262150, 44, 0, 262152, 44, 0, 262154, 44, 0, 262156, 44, 0, 262158, 44, 0, 262160, 44, 0, 262162, 44, 0, 262164, 44, 0, 262166, 44, 0, 327680, 45, 0, 327681, 44, 0, 327683, 44, 0, 327685, 44, 0, 327687, 44, 0, 327689, 44, 0, 327691, 44, 0, 327693, 44, 0, 327695, 44, 0, 327697, 44, 0, 327699, 44, 0, 327701, 44, 0, 393216, 44, 0, 393218, 44, 0, 393231, 45, 0, 393232, 44, 0, 393234, 44, 0, 393236, 44, 0, 393238, 44, 0, 458752, 45, 0, 458753, 44, 0, 458755, 45, 0, 458767, 44, 0, 458769, 44, 0, 458771, 44, 0, 458773, 44, 0, 524288, 44, 0, 524290, 44, 0, 524303, 45, 0, 524304, 44, 0, 524306, 44, 0, 524308, 44, 0, 524310, 44, 0, 589824, 45, 0, 589825, 44, 0, 589827, 45, 0, 589839, 44, 0, 589841, 44, 0, 589843, 44, 0, 589845, 44, 0, 655360, 44, 0, 655362, 44, 0, 655375, 45, 0, 655376, 44, 0, 655378, 44, 0, 655380, 44, 0, 655382, 44, 0, 720896, 45, 0, 720897, 44, 0, 720899, 44, 0, 720901, 44, 0, 720903, 44, 0, 720905, 44, 0, 720907, 44, 0, 720909, 44, 0, 720911, 44, 0, 720913, 44, 0, 720915, 44, 0, 720917, 44, 0, 720919, 44, 0, 720921, 44, 0, 720923, 44, 0, 786432, 44, 0, 786434, 44, 0, 786436, 44, 0, 786438, 44, 0, 786440, 44, 0, 786442, 44, 0, 786444, 44, 0, 786446, 44, 0, 786448, 44, 0, 786450, 44, 0, 786452, 44, 0, 786454, 44, 0, 786456, 44, 0, 786458, 44, 0, 786460, 44, 0, 851968, 45, 0, 851969, 44, 0, 851971, 44, 0, 851973, 44, 0, 851975, 44, 0, 851977, 44, 0, 851979, 44, 0, 851981, 44, 0, 851983, 44, 0, 851985, 44, 0, 851987, 44, 0, 851989, 44, 0, 851991, 44, 0, 917504, 44, 0, 917506, 44, 0, 917508, 44, 0, 917510, 44, 0, 917512, 44, 0, 917514, 44, 0, 917516, 44, 0, 917518, 44, 0, 917520, 44, 0, 917522, 44, 0, 917524, 44, 0, 917526, 44, 0, 917528, 44, 0, 983040, 45, 0, 983041, 44, 0, 983043, 44, 0, 983045, 44, 0, 983047, 44, 0, 983049, 44, 0, 983051, 44, 0, 983053, 44, 0, 983055, 44, 0, 983057, 44, 0, 983059, 44, 0, 983061, 44, 0, 983063, 44, 0, 1048576, 44, 0, 1048578, 44, 0, 1048580, 44, 0, 1048582, 44, 0, 1048584, 44, 0, 1048586, 44, 0, 1048588, 44, 0, 1048590, 44, 0, 1048592, 44, 0, 1048594, 44, 0, 1048596, 44, 0, 1048598, 44, 0, 1048600, 44, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="special blocks" type="Node" parent="." index="1"]
+
+[node name="gems" type="Node" parent="." index="2"]
+
+[node name="enemies" type="Node" parent="." index="3"]
+
+[node name="props" type="Node" parent="." index="4"]
+
+[node name="Door" parent="props" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 288, 528 )
+door_name = "key_room1"
+dest_scene = "res://stages/overworld/castle_entrance.tscn"
+dest_spawn = "gem_door1"
+state = 1
+
+[node name="key" parent="props" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 624, 464 )
+
+[node name="Sign" parent="props" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 432, 480 )
+text = "Keys can be used to unlock padlocked doors in this world. There will be at most one key in each level."
+
+[node name="parallax_bg" parent="." index="5" instance=ExtResource( 5 )]
+
+

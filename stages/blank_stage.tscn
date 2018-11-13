@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tiles/tileset.res" type="TileSet" id=1]
+[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
+
+[node name="stage" type="Node" index="0"]
+
+[node name="tile_map" type="TileMap" parent="." index="0"]
+
+scale = Vector2( 3, 3 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="special blocks" type="Node" parent="." index="1"]
+
+[node name="gems" type="Node" parent="." index="2"]
+
+[node name="enemies" type="Node" parent="." index="3"]
+
+[node name="props" type="Node" parent="." index="4"]
+
+[node name="parallax_bg" parent="." index="5" instance=ExtResource( 2 )]
+
+
