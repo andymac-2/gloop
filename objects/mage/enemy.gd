@@ -43,6 +43,9 @@ func absorb():
 func burn ():
 	_pre_die()
 	
+func crush ():
+	_pre_die ()
+	
 func _is_facing_right ():
 	return 1 == sign($sprite.scale.x)
 	

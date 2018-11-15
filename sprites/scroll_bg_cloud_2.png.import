@@ -7,10 +7,7 @@ path="res://.import/scroll_bg_cloud_2.png-059e1d2010740bf25d2228d12da34b9a.stex"
 [deps]
 
 source_file="res://sprites/scroll_bg_cloud_2.png"
-source_md5="5acccab15a17f158a267e2cbf2c8d037"
-
 dest_files=[ "res://.import/scroll_bg_cloud_2.png-059e1d2010740bf25d2228d12da34b9a.stex" ]
-dest_md5="a8e0aaff2215a5fc5c4e98ac28cc7158"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -7,10 +7,7 @@ path="res://.import/scroll_bg_fg_1.png-0f8ec9b86e33e56016a1646b26aa8315.stex"
 [deps]
 
 source_file="res://sprites/scroll_bg_fg_1.png"
-source_md5="7b7b3b723bb49a3c3794fb11d24d7600"
-
 dest_files=[ "res://.import/scroll_bg_fg_1.png-0f8ec9b86e33e56016a1646b26aa8315.stex" ]
-dest_md5="870592f1c5cb451e3b9b101d1f0f3cf2"
 
 [params]
 

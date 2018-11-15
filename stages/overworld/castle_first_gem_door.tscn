@@ -4,7 +4,7 @@
 [ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/key/key.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/sign/Sign.tscn" type="PackedScene" id=4]
-[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gfx/castle_bg.tscn" type="PackedScene" id=5]
 
 [node name="stage" type="Node"]
 
@@ -56,8 +56,8 @@ position = Vector2( 624, 464 )
 [node name="Sign" parent="props" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 432, 480 )
-text = "Keys can be used to unlock padlocked doors in this world. There will be at most one key in each level."
+text = "Use keys to unlock doors. There will be one in each level."
 
-[node name="parallax_bg" parent="." index="5" instance=ExtResource( 5 )]
+[node name="ParallaxBackground" parent="." index="5" instance=ExtResource( 5 )]
 
 

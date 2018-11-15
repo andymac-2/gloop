@@ -7,10 +7,7 @@ path="res://.import/osb_right.png-f1c614fd813f1b8793b2c9d7b2ed7b31.stex"
 [deps]
 
 source_file="res://sprites/osb_right.png"
-source_md5="860560d5e66ccd837973fbbde7eb958f"
-
 dest_files=[ "res://.import/osb_right.png-f1c614fd813f1b8793b2c9d7b2ed7b31.stex" ]
-dest_md5="79b739823ce27077acfa70f6330fedd6"
 
 [params]
 

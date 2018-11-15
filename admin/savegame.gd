@@ -11,7 +11,7 @@ const save_file_name = "user://save.json"
 
 func _ready():
 	#debug line
-	save()
+	# save()
 	
 	
 	restore()

@@ -37,6 +37,9 @@ const FALL_FORCE = 450.0
 # time in seconds
 const MAGE_SHOOT_COOLDOWN = 0.3
 
+const TANK_FALL_VEL = 40
+const TANK_CRUSH_ACCEL = 5000.0
+
 # set to the object that we can enter
 var over_enterable_object = false
 var enter_object
@@ -51,11 +54,15 @@ func burn ():
 	
 func stab():
 	damage()
+	
+func crush ():
+	damage()
 		
 func damage ():
 	if INVINCIBLE == state or DEAD == state:
 		return
 	if type != "":
+		action_cool_down = 0
 		_set_type("")
 		state = INVINCIBLE
 		$poof.play("poof")
@@ -253,7 +260,27 @@ func _mage_action(step):
 		bi.set_collision_mask_bit(6, true)
 	else:
 		action_cool_down -= step
-	
+		
+func _tank_action (body_state, lv, step):
+	var floor_index = _find_ground(body_state)
+	if floor_index >= 0:
+		if not actioning:
+			return lv
+			
+		actioning = false
+		var ground = body_state.get_contact_collider_object(floor_index)
+		if ground.has_method("crush"):
+			ground.crush()
+		
+	elif action: #in the air
+		lv.y += TANK_FALL_VEL
+		actioning = true
+		
+	elif actioning:
+		print ("here")
+		lv.y += TANK_CRUSH_ACCEL * step
+		
+	return lv
 
 # called during physics simulation. 
 func _integrate_forces(s):
@@ -286,6 +313,10 @@ func _integrate_forces(s):
 			_set_animation(lv)
 			_mage_action(step)
 		"tank":
+			lv = _normal_player_movement (lv, step)
+			_set_animation(lv)
+			lv = _tank_action(s, lv, step)
+		"walker":
 			lv = _normal_player_movement (lv, step)
 			_set_animation(lv)
 		"":

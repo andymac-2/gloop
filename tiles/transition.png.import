@@ -7,10 +7,7 @@ path="res://.import/transition.png-70148aab3f414c74c820f10e6ab9201b.stex"
 [deps]
 
 source_file="res://tiles/transition.png"
-source_md5="314cdaef4520a0505e31a0c0061678e1"
-
 dest_files=[ "res://.import/transition.png-70148aab3f414c74c820f10e6ab9201b.stex" ]
-dest_md5="876d240eac54269408a15a347905d532"
 
 [params]
 

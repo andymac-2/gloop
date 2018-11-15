@@ -7,10 +7,7 @@ path="res://.import/osb_fire.png-5019d285274423849f0587c01ee75bf9.stex"
 [deps]
 
 source_file="res://sprites/osb_fire.png"
-source_md5="99a276197ee76a83312af783f33f0ab3"
-
 dest_files=[ "res://.import/osb_fire.png-5019d285274423849f0587c01ee75bf9.stex" ]
-dest_md5="977d51633748d45e85e4c7a214ade70e"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/moving_platform.png-a0fa2a03e489d500cec394a0f5a6309e.stex"
 [deps]
 
 source_file="res://objects/moving_platform/moving_platform.png"
-source_md5="3a3eb41985ca94372fe4a9c81b067504"
-
 dest_files=[ "res://.import/moving_platform.png-a0fa2a03e489d500cec394a0f5a6309e.stex" ]
-dest_md5="2d28d040ea69e01af7f8d176520661b0"
 
 [params]
 

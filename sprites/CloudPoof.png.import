@@ -7,10 +7,7 @@ path="res://.import/CloudPoof.png-c722265ca7605f0db2a9eed325d586e3.stex"
 [deps]
 
 source_file="res://sprites/CloudPoof.png"
-source_md5="acf99eda1ba59cfd3f114776926cf883"
-
 dest_files=[ "res://.import/CloudPoof.png-c722265ca7605f0db2a9eed325d586e3.stex" ]
-dest_md5="febc91f6e4d587fcdddf3d9eeb20c7b7"
 
 [params]
 

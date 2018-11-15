@@ -15,6 +15,9 @@ var state = ALIVE
 
 const WALK_SPEED = 50
 
+func crush():
+	_pre_die()
+
 func _pre_die():
 	if DYING == state:
 		return
@@ -47,6 +50,12 @@ func _integrate_forces(s):
 			wall_side = 1.0
 		elif dp.x < -0.8:
 			wall_side = -1.0
+			
+		if dp.y < 0.1:
+			var obj = s.get_contact_collider_object(i)
+			if obj.has_method("crush"):
+				obj.crush()
+			
 			
 	if wall_side != 0 and wall_side != direction:
 		direction = -direction
