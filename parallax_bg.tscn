@@ -37,7 +37,6 @@ centered = false
 
 [node name="clouds" type="ParallaxLayer" parent="." index="1"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 800, 0 )
@@ -61,7 +60,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite 4" type="Sprite" parent="clouds" index="2"]
 
-position = Vector2( 484.93, 21.8235 )
+position = Vector2( 543.794, 8.83867 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 centered = false
@@ -69,7 +68,6 @@ _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [node name="mount_ 2" type="ParallaxLayer" parent="." index="2"]
 
-editor/display_folded = true
 motion_scale = Vector2( 0.2, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 800, 0 )
@@ -77,6 +75,7 @@ _sections_unfolded = [ "Motion" ]
 
 [node name="Sprite" type="Sprite" parent="mount_ 2" index="0"]
 
+visible = false
 position = Vector2( 0, 225 )
 texture = ExtResource( 5 )
 centered = false
@@ -91,6 +90,7 @@ _sections_unfolded = [ "Motion" ]
 
 [node name="Sprite" type="Sprite" parent="mount_1" index="0"]
 
+visible = false
 position = Vector2( 0, 225 )
 texture = ExtResource( 6 )
 centered = false

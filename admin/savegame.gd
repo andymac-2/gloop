@@ -6,15 +6,20 @@ var crystals = {}
 var key_total = 0
 var player_type = ""
 
+# String: spawn point name to spawn at
+var current_spawn = ""
+# A String: the path to the scene to respawn at, may not be the current scene
+var current_scene  = "res://stages/overworld_beginning/overworld_beginning.tscn"
 const save_file_name = "user://save.json"
 
 
 func _ready():
-	#debug line
+	#debug line to restart fresh
 	# save()
 	
 	
 	restore()
+	scene_transition.spawn()
 
 func save ():
 	var save_dict = {
@@ -22,7 +27,9 @@ func save ():
 		"keys": keys,
 		"crystals": crystals,
 		"key_total": key_total,
-		"player_type": player_type
+		"player_type": player_type,
+		"current_spawn": current_spawn,
+		"current_scene": current_scene
 	}
 	
 	var file = File.new()
@@ -46,6 +53,8 @@ func restore():
 	crystals = save_dict.crystals
 	key_total = save_dict.key_total
 	player_type = save_dict.player_type
+	current_spawn = save_dict.current_spawn
+	current_scene = save_dict.current_scene
 	
 #door fuctions
 # door[scene][door_name] == true iff door is unlocked

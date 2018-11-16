@@ -111,8 +111,6 @@ crystal_name = "10"
 
 [node name="props" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="respawn_point" parent="props" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 2616, 624 )

@@ -9,8 +9,6 @@ var state
 
 const player = preload("res://objects/player/player.tscn")
 var current_player = null
-var current_spawn  #A vector2 where to spawn
-var current_scene  #A string: the path to the scene to respawn at, may not be the current scene
 var spawn_points = {}
 
 # a string to the file path of the current scene
@@ -21,11 +19,12 @@ func set_player(obj):
 	player = obj
 	
 func set_respawn(scene, spawn_point_name):
+	savegame.current_scene = scene
+	savegame.current_spawn = spawn_point_name
 	savegame.save()
-	current_scene = scene
-	current_spawn = spawn_point_name
 	
 func register_spawn_point(scene, spawn_point_name, spawn_point):
+	
 	if not spawn_points.has(scene):
 		spawn_points[scene] = {}
 	
@@ -33,7 +32,10 @@ func register_spawn_point(scene, spawn_point_name, spawn_point):
 		spawn_points[scene][spawn_point_name] = spawn_point
 	
 func respawn():
-	transition_to(current_scene, current_spawn)
+	transition_to(savegame.current_scene, savegame.current_spawn)
+	
+func spawn():
+	spawn_at(savegame.current_scene, savegame.current_spawn)
 	
 func transition_to (scene, spawn_point):
 	if TRANSITIONING == state:

@@ -18,6 +18,9 @@ var on_ground = false
 var floor_h_velocity = 0.0
 var action_cool_down = 0.0
 
+# this is a hack to keep the running animation on shallow slopes
+var on_ground_cool_down = 0.0
+
 # Player buttons
 var jump = false
 var move_left = false
@@ -25,14 +28,16 @@ var move_right = false
 var crouch = false
 var action = false
 
-const WALK_ACCEL = 600.0
+const WALK_ACCEL = 500.0
 const WALK_DECEL = 1600.0
 const MAX_VELOCITY = 300.0
-const AIR_ACCEL = 800.0
+const AIR_ACCEL = 500.0
 const AIR_DECEL = 800.0
 const JUMP_VELOCITY = 460.0
 const STOP_JUMP_FORCE = 1500.0
 const FALL_FORCE = 450.0
+
+const GROUND_COOL_DOWN = 0.1
 
 # time in seconds
 const MAGE_SHOOT_COOLDOWN = 0.3
@@ -175,6 +180,7 @@ func _find_ground (bodyState):
 		var ci = bodyState.get_contact_local_normal(x)
 		if ci.dot(Vector2(0, -1)) > 0.6:
 			on_ground = true
+			on_ground_cool_down = GROUND_COOL_DOWN
 			return x
 	on_ground = false
 	return -1
@@ -188,7 +194,7 @@ func _set_animation (lv):
 		new_anim = "crouch_" + type
 	elif actioning and action:
 		new_anim = "action_" + type
-	elif on_ground:
+	elif on_ground or (not jumping and on_ground_cool_down > 0):
 		if abs(lv.x) < 0.1:
 			new_anim = "idle_" + type
 		elif lv.x < 0 and not move_left:
@@ -277,7 +283,6 @@ func _tank_action (body_state, lv, step):
 		actioning = true
 		
 	elif actioning:
-		print ("here")
 		lv.y += TANK_CRUSH_ACCEL * step
 		
 	return lv
@@ -298,6 +303,7 @@ func _integrate_forces(s):
 	action = Input.is_action_pressed("action")
 	var enter = Input.is_action_pressed("enter")
 	
+	on_ground_cool_down -= step
 	
 	var ground
 	var floor_index = _find_ground(s)
