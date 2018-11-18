@@ -11,10 +11,11 @@
 [ext_resource path="res://objects/moving_platform/moving_platform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/mage/enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/tank/tank.tscn" type="PackedScene" id=11]
-[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=12]
 [ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/gem_door/gem_door.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/spikes/spike1.tscn" type="PackedScene" id=15]
+
 
 [node name="stage" type="Node"]
 

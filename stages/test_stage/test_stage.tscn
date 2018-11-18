@@ -4,11 +4,12 @@
 [ext_resource path="res://objects/level_door/level_door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/sign/Sign.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/moving_platform/moving_platform.tscn" type="PackedScene" id=4]
-[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/respawn_point/respawn_point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/mage/enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=9]
+
 
 [node name="stage" type="Node"]
 

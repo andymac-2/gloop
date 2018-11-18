@@ -2,7 +2,8 @@
 
 [ext_resource path="res://tiles/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=3]
+
 
 [node name="stage" type="Node"]
 

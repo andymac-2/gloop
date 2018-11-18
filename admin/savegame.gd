@@ -3,12 +3,14 @@ extends Node
 var doors = {}
 var keys = {}
 var crystals = {}
+var green_gems = {}
 var key_total = 0
 var player_type = ""
 
 # String: spawn point name to spawn at
 var current_spawn = ""
 # A String: the path to the scene to respawn at, may not be the current scene
+# beginning: res://stages/overworld/castle_entrance.tscn
 var current_scene  = "res://stages/overworld_beginning/overworld_beginning.tscn"
 const save_file_name = "user://save.json"
 
@@ -29,7 +31,8 @@ func save ():
 		"key_total": key_total,
 		"player_type": player_type,
 		"current_spawn": current_spawn,
-		"current_scene": current_scene
+		"current_scene": current_scene,
+		"green_gems": green_gems
 	}
 	
 	var file = File.new()
@@ -55,6 +58,7 @@ func restore():
 	player_type = save_dict.player_type
 	current_spawn = save_dict.current_spawn
 	current_scene = save_dict.current_scene
+	green_gems = save_dict.green_gems
 	
 #door fuctions
 # door[scene][door_name] == true iff door is unlocked
@@ -128,4 +132,36 @@ func get_total_crystals ():
 	var acc = 0
 	for scene in crystals:
 		acc += get_crystal_count(scene)
+	return acc
+	
+#green gem functions
+# crystal[scene][Crystal_name] == true iff crystal has been taken
+func _check_green_gem (scene, green_gem_name):
+	if not green_gems.has(scene):
+		green_gems[scene] = {}
+	if not green_gems[scene].has(green_gem_name):
+		green_gems[scene][green_gem_name] = false
+
+func is_green_gem_taken (scene, green_gem_name):
+	_check_green_gem (scene, green_gem_name)
+	return green_gems[scene][green_gem_name]
+	
+func take_green_gem (scene, green_gem_name):
+	_check_green_gem (scene, green_gem_name)
+	green_gems[scene][green_gem_name] = true
+	
+func get_green_gem_count (scene):
+	if not green_gems.has(scene):
+		return 0
+		
+	var acc = 0
+	for green_gem in green_gems[scene]:
+		if green_gems[scene][green_gem] == true:
+			acc += 1
+	return acc
+	
+func get_total_green_gems ():
+	var acc = 0
+	for scene in green_gems:
+		acc += get_green_gem_count(scene)
 	return acc

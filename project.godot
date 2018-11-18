@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Dynamic Character Control-Based Platformer"
+config/name="Gloop"
 run/main_scene="res://admin/savegame.tscn"
 config/icon="res://icon.png"
 

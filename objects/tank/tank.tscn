@@ -64,7 +64,7 @@ extents = Vector2( 24, 15 )
 custom_solver_bias = 0.0
 radius = 18.0
 
-[node name="tank" type="RigidBody2D" index="0"]
+[node name="tank" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 64

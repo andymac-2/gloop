@@ -17,6 +17,7 @@ var actioning = false
 var on_ground = false
 var floor_h_velocity = 0.0
 var action_cool_down = 0.0
+var bounce_normal = null
 
 # this is a hack to keep the running animation on shallow slopes
 var on_ground_cool_down = 0.0
@@ -36,6 +37,8 @@ const AIR_DECEL = 800.0
 const JUMP_VELOCITY = 460.0
 const STOP_JUMP_FORCE = 1500.0
 const FALL_FORCE = 450.0
+const BOUNCE_VELOCITY = 250.0
+const BOUNCE_Y_VELOCITY = 150.0
 
 const GROUND_COOL_DOWN = 0.1
 
@@ -76,6 +79,11 @@ func damage ():
 	else:
 		_die ()
 		
+# other interactions:
+func bounce (normal):
+	bounce_normal = normal
+	
+		
 func _on_flash_timer_timeout():
 	visible = not visible
 
@@ -103,9 +111,10 @@ func _absorb (ground):
 	if ground.has_method("absorb"):
 		var t = ground.absorb()
 		_set_type(t)
-	else:
-		actioning = false
-		_set_type("")
+	# uncoment to discard powerup when crouching on ground
+	#else:
+	#	actioning = false
+	#	_set_type("")
 		
 	if (type != oldtype):
 		$poof.play("poof")
@@ -155,12 +164,23 @@ func _apply_player_movement (lv, step, accel, decel, max_vel):
 # player movement/acceleration when in "normal" state
 # lv is linear velocity
 func _normal_player_movement (lv, step):
+	if bounce_normal != null:
+		lv += bounce_normal * BOUNCE_VELOCITY * -1
+		if lv.y > -10:
+			lv.y -= BOUNCE_Y_VELOCITY
+		else:
+			lv.y += BOUNCE_Y_VELOCITY
+		bounce_normal = null
 	if on_ground and crouch:
-		return _decelerate (lv, step, WALK_DECEL)
+		lv = _decelerate (lv, step, WALK_DECEL)
 	elif on_ground:
-		return _apply_player_movement (lv, step, WALK_ACCEL, WALK_DECEL, MAX_VELOCITY)
+		lv = _apply_player_movement (lv, step, WALK_ACCEL, WALK_DECEL, MAX_VELOCITY)
 	else:
-		return _apply_player_movement (lv, step, AIR_ACCEL, AIR_DECEL, MAX_VELOCITY)
+		lv = _apply_player_movement (lv, step, AIR_ACCEL, AIR_DECEL, MAX_VELOCITY)
+		
+	lv.x = clamp(lv.x, -MAX_VELOCITY, MAX_VELOCITY)
+	lv.y = clamp(lv.y, -JUMP_VELOCITY * 1.1, JUMP_VELOCITY * 3)
+	return lv
 		
 func _apply_gravity(lv, step, s):
 	if not on_ground:

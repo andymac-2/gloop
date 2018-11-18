@@ -11,6 +11,9 @@ var state = ALIVE
 
 const WALK_SPEED = 50
 
+onready var rc_left = $raycast_left
+onready var rc_right = $raycast_right
+
 func _pre_die():
 	if DYING == state:
 		return
@@ -44,6 +47,11 @@ func _integrate_forces(s):
 	for i in range(s.get_contact_count()):
 		var cc = s.get_contact_collider_object(i)
 		var dp = s.get_contact_local_normal(i)
+
+		if dp.y < 0.3:
+			var obj = s.get_contact_collider_object(i)
+			if obj.has_method("bounce"):
+				obj.bounce(dp)
 		
 		if dp.x > 0.8:
 			wall_side = 1.0
@@ -53,6 +61,14 @@ func _integrate_forces(s):
 	if wall_side != 0 and wall_side != direction:
 		direction = -direction
 		$sprite.scale.x = -$sprite.scale.x
+	if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
+		direction = -direction
+		$sprite.scale.x = -$sprite.scale.x
+		print("here")
+	elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
+		direction = -direction
+		$sprite.scale.x = -$sprite.scale.x
+		print("here")
 		
 	lv.x = direction * WALK_SPEED
 	
