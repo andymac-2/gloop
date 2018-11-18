@@ -37,13 +37,14 @@ const AIR_DECEL = 800.0
 const JUMP_VELOCITY = 460.0
 const STOP_JUMP_FORCE = 1500.0
 const FALL_FORCE = 450.0
-const BOUNCE_VELOCITY = 250.0
+const BOUNCE_VELOCITY = 150.0
 const BOUNCE_Y_VELOCITY = 150.0
 
 const GROUND_COOL_DOWN = 0.1
 
 # time in seconds
 const MAGE_SHOOT_COOLDOWN = 0.3
+const COW_INVISIBILITY_COOLDOWN = 1
 
 const TANK_FALL_VEL = 40
 const TANK_CRUSH_ACCEL = 5000.0
@@ -65,15 +66,22 @@ func stab():
 	
 func crush ():
 	damage()
+	
+func enemy_side_hit():
+	damage()
 		
 func damage ():
 	if INVINCIBLE == state or DEAD == state:
 		return
 	if type != "":
+		#undo shooting cooldown
 		action_cool_down = 0
+		# undo cow effect
+		_make_visible()
+		
 		_set_type("")
-		state = INVINCIBLE
 		$poof.play("poof")
+		state = INVINCIBLE
 		$invincibility_timer.start()
 		$flash_timer.start()
 	else:
@@ -147,6 +155,7 @@ func _decelerate (lv, step, decel):
 
 # applies the player movement, mutates lv
 func _apply_player_movement (lv, step, accel, decel, max_vel):
+	# consider commenting out On_ground part of this conditional.
 	if move_right == move_left and on_ground:
 		lv = _decelerate (lv, step, decel)
 	elif move_left:
@@ -154,11 +163,15 @@ func _apply_player_movement (lv, step, accel, decel, max_vel):
 			lv.x -= decel * step
 		elif lv.x > -max_vel:
 			lv.x -= accel * step
+		elif lv.x < -max_vel:
+			lv.x += decel * step
 	elif move_right:
 		if lv.x < 0:
 			lv.x += decel * step
 		elif lv.x < max_vel:
 			lv.x += accel * step
+		elif lv.x > max_vel:
+			lv.x -= decel * step
 	return lv
 
 # player movement/acceleration when in "normal" state
@@ -166,10 +179,10 @@ func _apply_player_movement (lv, step, accel, decel, max_vel):
 func _normal_player_movement (lv, step):
 	if bounce_normal != null:
 		lv += bounce_normal * BOUNCE_VELOCITY * -1
-		if lv.y > -10:
+		if bounce_normal.y > -0.7:
 			lv.y -= BOUNCE_Y_VELOCITY
 		else:
-			lv.y += BOUNCE_Y_VELOCITY
+			lv.y += BOUNCE_Y_VELOCITY * 0.5
 		bounce_normal = null
 	if on_ground and crouch:
 		lv = _decelerate (lv, step, WALK_DECEL)
@@ -178,7 +191,6 @@ func _normal_player_movement (lv, step):
 	else:
 		lv = _apply_player_movement (lv, step, AIR_ACCEL, AIR_DECEL, MAX_VELOCITY)
 		
-	lv.x = clamp(lv.x, -MAX_VELOCITY, MAX_VELOCITY)
 	lv.y = clamp(lv.y, -JUMP_VELOCITY * 1.1, JUMP_VELOCITY * 3)
 	return lv
 		
@@ -212,7 +224,7 @@ func _set_animation (lv):
 	var new_anim
 	if on_ground and crouch:
 		new_anim = "crouch_" + type
-	elif actioning and action:
+	elif actioning and action and type != "cow":
 		new_anim = "action_" + type
 	elif on_ground or (not jumping and on_ground_cool_down > 0):
 		if abs(lv.x) < 0.1:
@@ -284,8 +296,36 @@ func _mage_action(step):
 		
 		bi.set_collision_mask_bit(0, true)
 		bi.set_collision_mask_bit(6, true)
-	else:
-		action_cool_down -= step
+		
+		
+func _cow_action ():
+	if action and not actioning and action_cool_down < 0:
+		actioning = true
+		_make_invisible()
+		
+	if not action and actioning:
+		actioning = false
+		action_cool_down = COW_INVISIBILITY_COOLDOWN
+		_make_visible()
+		
+func _on_invisibility_timer_timeout():
+	_make_visible()
+
+func _make_invisible ():
+	z_index = -10
+	modulate = Color(0.5, 0.8, 0.8, 1)
+	$invisibility_timer.start()
+	set_collision_layer_bit(7, true)
+	set_collision_layer_bit(5, false)
+	$poof.play("poof")
+	
+func _make_visible ():
+	z_index = 0
+	modulate = Color(1, 1, 1, 1)
+	$invisibility_timer.stop()
+	set_collision_layer_bit(5, true)
+	set_collision_layer_bit(7, false)
+	$poof.play("poof")
 		
 func _tank_action (body_state, lv, step):
 	var floor_index = _find_ground(body_state)
@@ -314,6 +354,8 @@ func _integrate_forces(s):
 	
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
+	
+	action_cool_down -= step
 	
 	# Get the controls
 	move_left = Input.is_action_pressed("move_left")
@@ -345,6 +387,10 @@ func _integrate_forces(s):
 		"walker":
 			lv = _normal_player_movement (lv, step)
 			_set_animation(lv)
+		"cow":
+			lv = _normal_player_movement (lv, step)
+			_set_animation(lv)
+			_cow_action()
 		"":
 			lv = _normal_player_movement (lv, step)
 			_set_animation(lv)

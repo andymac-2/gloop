@@ -84,7 +84,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="green_gem" type="Area2D"]
+[node name="green_gem" type="Area2D" index="0"]
 
 position = Vector2( 0, -1.50342 )
 scale = Vector2( 3, 3 )
@@ -94,7 +94,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 0
-collision_mask = 32
+collision_mask = 160
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )

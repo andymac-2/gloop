@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://objects/tank/tank.gd" type="Script" id=1]
+[ext_resource path="res://objects/cow/cow.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -40,7 +40,7 @@ tracks/1/keys = {
 
 length = 0.8
 loop = true
-step = 0.1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
@@ -48,23 +48,23 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 48, 49, 50, 51, 52, 53, 54, 55 ]
+"values": [ 80, 81, 82, 83 ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 24, 15 )
-
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 18.0
 
-[node name="tank" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 15 )
+
+[node name="cow" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 64
@@ -90,7 +90,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="." index="0"]
 
 scale = Vector2( 20, 13 )
-rect = Rect2( -20, -10, 40, 20 )
+rect = Rect2( -10, -10, 20, 20 )
 pause_animations = true
 freeze_bodies = true
 pause_particles = true
@@ -110,25 +110,43 @@ anims/poof = SubResource( 1 )
 anims/rolling = SubResource( 2 )
 blend_times = [  ]
 
-[node name="sprite" type="Sprite" parent="." index="2"]
+[node name="shape2" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 0, 6 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shape1" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 0, -6 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="sprite" type="Sprite" parent="." index="4"]
 
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 vframes = 16
 hframes = 16
-frame = 51
+frame = 83
 _sections_unfolded = [ "Animation", "Transform" ]
 
-[node name="shape1" type="CollisionShape2D" parent="." index="3"]
+[node name="raycast_left" type="RayCast2D" parent="." index="5"]
 
-position = Vector2( 0, -6 )
-shape = SubResource( 3 )
+position = Vector2( -17, -9 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 70 )
+collision_mask = 3
 _sections_unfolded = [ "Transform" ]
 
-[node name="shape2" type="CollisionShape2D" parent="." index="4"]
+[node name="raycast_right" type="RayCast2D" parent="." index="6"]
 
-position = Vector2( 0, 6 )
-shape = SubResource( 4 )
+position = Vector2( 17, -9 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 70 )
+collision_mask = 3
 _sections_unfolded = [ "Transform" ]
 
 

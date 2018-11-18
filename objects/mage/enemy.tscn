@@ -112,7 +112,7 @@ length = 20.0
 custom_solver_bias = 0.0
 length = 20.0
 
-[node name="enemy" type="RigidBody2D"]
+[node name="enemy" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 64
@@ -204,7 +204,7 @@ position = Vector2( -21, -9 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 60 )
-collision_mask = 1
+collision_mask = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="raycast_right" type="RayCast2D" parent="." index="8"]
@@ -213,7 +213,7 @@ position = Vector2( 15, -9 )
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 60 )
-collision_mask = 1
+collision_mask = 3
 _sections_unfolded = [ "Transform" ]
 
 [node name="sound_hit" type="AudioStreamPlayer2D" parent="." index="9"]
@@ -253,7 +253,7 @@ _sections_unfolded = [ "Z Index" ]
 [node name="shoot_timer" type="Timer" parent="." index="13"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 3.0
 one_shot = false
 autostart = true
 

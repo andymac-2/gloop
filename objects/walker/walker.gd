@@ -64,11 +64,9 @@ func _integrate_forces(s):
 	if direction < 0 and not rc_left.is_colliding() and rc_right.is_colliding():
 		direction = -direction
 		$sprite.scale.x = -$sprite.scale.x
-		print("here")
 	elif direction > 0 and not rc_right.is_colliding() and rc_left.is_colliding():
 		direction = -direction
 		$sprite.scale.x = -$sprite.scale.x
-		print("here")
 		
 	lv.x = direction * WALK_SPEED
 	

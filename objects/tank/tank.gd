@@ -53,8 +53,8 @@ func _integrate_forces(s):
 			
 		if dp.y < 0.1:
 			var obj = s.get_contact_collider_object(i)
-			if obj.has_method("crush"):
-				obj.crush()
+			if obj.has_method("enemy_side_hit"):
+				obj.enemy_side_hit()
 			
 			
 	if wall_side != 0 and wall_side != direction:

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/objects.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 24 )
+
+[node name="reverse_cow_block" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 192
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="collision" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 24, 24 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="block" type="Sprite" parent="." index="1"]
+
+position = Vector2( 24, 24 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+vframes = 16
+hframes = 16
+frame = 120
+_sections_unfolded = [ "Animation", "Transform" ]
+
+
