@@ -4,7 +4,7 @@
 [ext_resource path="res://tiles/tileset1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/enemies.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 6, 16 )
@@ -102,7 +102,7 @@ _sections_unfolded = [ "Animation", "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 position = Vector2( 0, -16 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="poof" type="AnimationPlayer" parent="." index="4"]

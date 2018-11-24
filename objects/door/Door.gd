@@ -34,8 +34,8 @@ func enter():
 		return
 		
 	if LOCKED == state and savegame.key_total > 0:
-		savegame.key_total -= 1
 		savegame.unlock_door(scene, door_name)
+		savegame.use_key()
 		# transition occurs as part of animation
 		state = UNLOCKING
 		$poof.play("unlock")

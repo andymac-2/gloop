@@ -366,6 +366,8 @@ dest_spawn = "w1_exit"
 position = Vector2( 384, 3024 )
 _sections_unfolded = [ "Collision", "Transform" ]
 door_name = "w2_entrance"
+dest_scene = "res://stages/w2/w2.tscn"
+dest_spawn = "w2_exit"
 total_crystals = 2
 
 [node name="green_gem_door3" parent="props" index="2" instance=ExtResource( 3 )]

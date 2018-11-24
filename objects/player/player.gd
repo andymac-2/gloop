@@ -3,6 +3,7 @@ extends RigidBody2D
 enum STATE {
 	ALIVE,
 	DEAD,
+	DYING,
 	INVINCIBLE
 }
 var state = ALIVE
@@ -71,10 +72,11 @@ func enemy_side_hit():
 	damage()
 		
 func damage ():
-	if INVINCIBLE == state or DEAD == state:
+	if INVINCIBLE == state or DEAD == state or DYING == state:
 		return
 	if type != "":
 		#undo shooting cooldown
+		actioning = false
 		action_cool_down = 0
 		# undo cow effect
 		_make_visible()
@@ -85,8 +87,7 @@ func damage ():
 		$invincibility_timer.start()
 		$flash_timer.start()
 	else:
-		_die ()
-		
+		state = DYING
 # other interactions:
 func bounce (normal):
 	bounce_normal = normal
@@ -109,7 +110,6 @@ func _special_collisions (bodyState):
 
 #init
 func _ready ():
-	$transition.play("in")
 	type = savegame.player_type
 
 
@@ -350,6 +350,13 @@ func _tank_action (body_state, lv, step):
 # called during physics simulation. 
 func _integrate_forces(s):
 	if DEAD == state:
+		return
+		
+	if DYING == state:
+		s.set_linear_velocity(Vector2(0,0))
+		if anim != "death":
+			anim = "death"
+			$anim.play("death")
 		return
 	
 	var lv = s.get_linear_velocity()

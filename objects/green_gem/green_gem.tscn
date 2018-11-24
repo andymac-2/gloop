@@ -84,7 +84,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="green_gem" type="Area2D" index="0"]
+[node name="green_gem" type="Area2D"]
 
 position = Vector2( 0, -1.50342 )
 scale = Vector2( 3, 3 )

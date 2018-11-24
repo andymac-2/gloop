@@ -45,7 +45,7 @@ func transition_to (scene, spawn_point):
 	spawn_to = spawn_point
 	# the player animation doesn't pause
 	get_tree().paused = true
-	current_player.get_node("transition").play("out")
+	$transition.play("out")
 	$out_timer.start()
 	
 func spawn_at(scene, spawn_point_name):
@@ -55,7 +55,7 @@ func spawn_at(scene, spawn_point_name):
 	# unpause here, to update background and reduce graphical glitches
 	call_deferred("_spawn_player")
 	get_tree().paused = false
-	
+	$transition.play("in")
 	
 	$in_timer.start()
 

@@ -14,4 +14,3 @@ func _on_key_body_entered(body):
 	if not savegame.is_key_taken(scene, key_name):
 		$anim.play("get")
 		savegame.take_key(scene, key_name)
-		savegame.key_total += 1

@@ -4,8 +4,8 @@ var doors = {}
 var keys = {}
 var crystals = {}
 var green_gems = {}
-var key_total = 0
 var player_type = ""
+var key_total = 0
 
 # String: spawn point name to spawn at
 var current_spawn = ""
@@ -13,6 +13,10 @@ var current_spawn = ""
 # beginning: res://stages/overworld/castle_entrance.tscn
 var current_scene  = "res://stages/overworld_beginning/overworld_beginning.tscn"
 const save_file_name = "user://save.json"
+
+# not actually part of savegame.
+var green_gem_total = 0
+var crystal_total = 0
 
 
 func _ready():
@@ -54,11 +58,16 @@ func restore():
 	doors = save_dict.doors
 	keys = save_dict.keys
 	crystals = save_dict.crystals
-	key_total = save_dict.key_total
 	player_type = save_dict.player_type
 	current_spawn = save_dict.current_spawn
 	current_scene = save_dict.current_scene
 	green_gems = save_dict.green_gems
+	key_total = save_dict.key_total
+	
+	get_total_green_gems()
+	get_total_crystals()
+	
+	hud.update_hud()
 	
 #door fuctions
 # door[scene][door_name] == true iff door is unlocked
@@ -96,10 +105,17 @@ func is_key_taken (scene, key_name):
 	
 func take_key (scene, key_name):
 	_check_key (scene, key_name)
+	if keys[scene][key_name] == false:
+		key_total += 1
+	hud.update_hud()
 	keys[scene][key_name] = true
 	
-func get_key_count ():
+func get_total_keys ():
 	return key_total
+	
+func use_key ():
+	key_total -= 1
+	hud.update_hud()
 
 
 #crystal functions
@@ -116,6 +132,9 @@ func is_crystal_taken (scene, crystal_name):
 	
 func take_crystal (scene, crystal_name):
 	_check_crystal (scene, crystal_name)
+	if crystals[scene][crystal_name] == false:
+		crystal_total += 1
+	hud.update_hud()
 	crystals[scene][crystal_name] = true
 	
 func get_crystal_count (scene):
@@ -132,6 +151,7 @@ func get_total_crystals ():
 	var acc = 0
 	for scene in crystals:
 		acc += get_crystal_count(scene)
+	crystal_total = acc
 	return acc
 	
 #green gem functions
@@ -148,9 +168,12 @@ func is_green_gem_taken (scene, green_gem_name):
 	
 func take_green_gem (scene, green_gem_name):
 	_check_green_gem (scene, green_gem_name)
+	if green_gems[scene][green_gem_name] == false:
+		green_gem_total += 1
+	hud.update_hud()
 	green_gems[scene][green_gem_name] = true
 	
-func get_green_gem_count (scene):
+func _get_green_gem_count (scene):
 	if not green_gems.has(scene):
 		return 0
 		
@@ -163,5 +186,6 @@ func get_green_gem_count (scene):
 func get_total_green_gems ():
 	var acc = 0
 	for scene in green_gems:
-		acc += get_green_gem_count(scene)
+		acc += _get_green_gem_count(scene)
+	green_gem_total = acc
 	return acc
