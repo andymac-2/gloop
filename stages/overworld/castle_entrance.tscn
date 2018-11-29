@@ -13,7 +13,7 @@
 [ext_resource path="res://objects/walker/walker.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=12]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
 script = ExtResource( 1 )
 song = "tutorial"

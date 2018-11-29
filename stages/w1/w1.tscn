@@ -33,8 +33,6 @@ __meta__ = {
 
 [node name="doors_bg" type="Node" parent="." index="0"]
 
-editor/display_folded = true
-
 [node name="Door2" parent="doors_bg" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 1304, 1824 )
@@ -94,11 +92,13 @@ total_crystals = 30
 
 position = Vector2( 408, 4272 )
 door_name = "w2_blue_door"
-dest_scene = "res://objects/credits/credits.tscn"
+dest_scene = "res://stages/copout_final_room/final_room.tscn"
 dest_spawn = "copout_room_entrance"
-total_crystals = 75
+total_crystals = 80
 
 [node name="special_blocks_bg" type="Node" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="three_spikes" type="Node2D" parent="special_blocks_bg" index="0"]
 
@@ -410,8 +410,6 @@ __meta__ = {
 
 [node name="special_blocks_fg" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Sign" parent="special_blocks_fg" index="0" instance=ExtResource( 14 )]
 
 position = Vector2( 7144, 3696 )
@@ -636,6 +634,11 @@ position = Vector2( 7448, 3744 )
 
 position = Vector2( 4536, 3888 )
 text = "These rocks look breakable."
+
+[node name="Sign4" parent="special_blocks_fg" index="20" instance=ExtResource( 14 )]
+
+position = Vector2( 3648, 3888 )
+text = "Those tanks don't appear to be affected by spikes."
 
 [node name="gems" type="Node" parent="." index="4"]
 
@@ -1060,8 +1063,6 @@ position = Vector2( 6440, 1736 )
 position = Vector2( 5120, 2760 )
 
 [node name="Node" type="Node" parent="enemies" index="16"]
-
-editor/display_folded = true
 
 [node name="walker6" parent="enemies/Node" index="0" instance=ExtResource( 21 )]
 

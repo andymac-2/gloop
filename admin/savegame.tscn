@@ -2,7 +2,7 @@
 
 [ext_resource path="res://admin/savegame.gd" type="Script" id=1]
 
-[node name="savegame" type="Node" index="0"]
+[node name="savegame" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )

@@ -24,20 +24,11 @@ func new_game():
 	
 func start_game():
 	restore()
-	scene_transition.spawn()
+	scene_transition.respawn()
 	
 func file_exists():
 	var file = File.new()
 	return file.file_exists(save_file_name)
-
-
-func _ready():
-	#debug line to restart fresh
-	# save()
-	
-	
-	restore()
-	scene_transition.spawn()
 
 func save ():
 	var save_dict = {

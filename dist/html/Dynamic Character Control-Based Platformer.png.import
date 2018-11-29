@@ -2,13 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dynamic Character Control-Based Platformer.png-cfa2ba5a6839afdeb1b59e7e15ba6e06.stex"
+valid=false
 
 [deps]
 
 source_file="res://dist/html/Dynamic Character Control-Based Platformer.png"
-dest_files=[ "res://.import/Dynamic Character Control-Based Platformer.png-cfa2ba5a6839afdeb1b59e7e15ba6e06.stex" ]
-
 [params]
 
 compress/mode=0
