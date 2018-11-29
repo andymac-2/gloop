@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound_die.wav-3232ac4cf5fa58904dc8d1d1e5293600.sample"
+
+[deps]
+
+source_file="res://objects/walker_boss/sound_die.wav"
+dest_files=[ "res://.import/sound_die.wav-3232ac4cf5fa58904dc8d1d1e5293600.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

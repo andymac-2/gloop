@@ -11,12 +11,24 @@ var key_total = 0
 var current_spawn = ""
 # A String: the path to the scene to respawn at, may not be the current scene
 # beginning: res://stages/overworld/castle_entrance.tscn
-var current_scene  = "res://stages/overworld_beginning/overworld_beginning.tscn"
+var current_scene  = "res://stages/overworld/castle_entrance.tscn"
 const save_file_name = "user://save.json"
 
 # not actually part of savegame.
 var green_gem_total = 0
 var crystal_total = 0
+
+func new_game():
+	save()
+	start_game()
+	
+func start_game():
+	restore()
+	scene_transition.spawn()
+	
+func file_exists():
+	var file = File.new()
+	return file.file_exists(save_file_name)
 
 
 func _ready():

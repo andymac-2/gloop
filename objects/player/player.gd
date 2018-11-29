@@ -82,6 +82,7 @@ func damage ():
 		_make_visible()
 		
 		_set_type("")
+		$sound_hurt.play()
 		$poof.play("poof")
 		state = INVINCIBLE
 		$invincibility_timer.start()
@@ -90,6 +91,7 @@ func damage ():
 		state = DYING
 # other interactions:
 func bounce (normal):
+	$sound_bounce.play()
 	bounce_normal = normal
 	
 		
@@ -134,7 +136,7 @@ func _set_type (t):
 func enter_checkpoint(cp):
 	if DEAD == state:
 		return
-	if last_checkpoint != null:
+	if last_checkpoint != null and last_checkpoint != cp:
 		last_checkpoint.deactivate()
 	last_checkpoint = cp
 	
@@ -312,6 +314,7 @@ func _on_invisibility_timer_timeout():
 	_make_visible()
 
 func _make_invisible ():
+	$sound_transform.play()
 	z_index = -10
 	modulate = Color(0.5, 0.8, 0.8, 1)
 	$invisibility_timer.start()
@@ -339,6 +342,8 @@ func _tank_action (body_state, lv, step):
 			ground.crush()
 		
 	elif action: #in the air
+		if not actioning:
+			$sound_pound.play()
 		lv.y += TANK_FALL_VEL
 		actioning = true
 		
@@ -356,6 +361,7 @@ func _integrate_forces(s):
 		s.set_linear_velocity(Vector2(0,0))
 		if anim != "death":
 			anim = "death"
+			$sound_death.play()
 			$anim.play("death")
 		return
 	

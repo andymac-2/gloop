@@ -24,7 +24,6 @@ func set_respawn(scene, spawn_point_name):
 	savegame.save()
 	
 func register_spawn_point(scene, spawn_point_name, spawn_point):
-	
 	if not spawn_points.has(scene):
 		spawn_points[scene] = {}
 	
@@ -53,6 +52,7 @@ func spawn_at(scene, spawn_point_name):
 	spawn_to = spawn_point_name
 	get_tree().change_scene(scene_to)
 	# unpause here, to update background and reduce graphical glitches
+	
 	call_deferred("_spawn_player")
 	get_tree().paused = false
 	$transition.play("in")
@@ -62,6 +62,9 @@ func spawn_at(scene, spawn_point_name):
 func _spawn_player ():
 	if current_player != null:
 		current_player.queue_free()
+		current_player = null
+	if not spawn_points.has(scene_to) or not spawn_points[scene_to].has(spawn_to):
+		return
 	current_player = player.instance()
 	current_player.position = spawn_points[scene_to][spawn_to]
 	get_node("/root").add_child(current_player)

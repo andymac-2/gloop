@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/sign/sign.gd" type="Script" id=1]
 [ext_resource path="res://tiles/tileset1.png" type="Texture" id=2]
+[ext_resource path="res://objects/sign/sign.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -60,7 +61,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ) ]
 }
 
-[node name="Sign" type="Area2D" index="0"]
+[node name="Sign" type="Area2D"]
 
 pause_mode = 2
 scale = Vector2( 3, 3 )
@@ -141,6 +142,17 @@ playback_speed = 1.0
 anims/hide = SubResource( 4 )
 anims/show = SubResource( 5 )
 blend_times = [  ]
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="_on_Sign_body_entered"]
 

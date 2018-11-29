@@ -25,6 +25,7 @@ func _pre_die():
 	state = DYING
 	
 	$anim.play("poof")
+	$sound_die.play()
 	$shape1.queue_free()
 	$shape2.queue_free()
 	

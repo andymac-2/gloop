@@ -1,35 +1,38 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://objects/key/key.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/spikes/eight_spikes.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/spikes/two_spikes.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/spikes/spike1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/crush_block/crush_block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/burn_block/burn_block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/cow_block/cow_block.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/reverse_cow_block/reverse_cow_block.tscn" type="PackedScene" id=9]
-[ext_resource path="res://tiles/tileset.res" type="TileSet" id=10]
-[ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/checkpoint/checkpoint.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/sign/Sign.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/mage/enemy.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/cow/cow.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/walker/walker.tscn" type="PackedScene" id=16]
-[ext_resource path="res://gfx/underground_bg.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/spawner/spawner.tscn" type="PackedScene" id=18]
+[ext_resource path="res://stages/w2/w2.gd" type="Script" id=1]
+[ext_resource path="res://objects/key/key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/spikes/eight_spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/spikes/two_spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/spikes/spike1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/crush_block/crush_block.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/burn_block/burn_block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/cow_block/cow_block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/reverse_cow_block/reverse_cow_block.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tiles/tileset.res" type="TileSet" id=11]
+[ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/checkpoint/checkpoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/sign/Sign.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/mage/enemy.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/cow/cow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/walker/walker.tscn" type="PackedScene" id=17]
+[ext_resource path="res://gfx/underground_bg.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/spawner/spawner.tscn" type="PackedScene" id=19]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
+
+script = ExtResource( 1 )
 
 [node name="propsBG" type="Node" parent="." index="0"]
 
 editor/display_folded = true
 
-[node name="key" parent="propsBG" index="0" instance=ExtResource( 1 )]
+[node name="key" parent="propsBG" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 9928, 1056 )
 
-[node name="key2" parent="propsBG" index="1" instance=ExtResource( 1 )]
+[node name="key2" parent="propsBG" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 10472, 2472 )
 key_name = "reward_key"
@@ -38,7 +41,7 @@ key_name = "reward_key"
 
 editor/display_folded = true
 
-[node name="Door" parent="dorrsCpsSpawns" index="0" instance=ExtResource( 2 )]
+[node name="Door" parent="dorrsCpsSpawns" index="0" instance=ExtResource( 3 )]
 
 position = Vector2( 6768, 624 )
 door_name = "w2_exit"
@@ -46,7 +49,7 @@ dest_scene = "res://stages/overworld/castle_ground_floor.tscn"
 dest_spawn = "w2_entrance"
 state = 1
 
-[node name="Door2" parent="dorrsCpsSpawns" index="1" instance=ExtResource( 2 )]
+[node name="Door2" parent="dorrsCpsSpawns" index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 7744, 664 )
 door_name = "1_0"
@@ -54,7 +57,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "0_2"
 state = 1
 
-[node name="Door3" parent="dorrsCpsSpawns" index="2" instance=ExtResource( 2 )]
+[node name="Door3" parent="dorrsCpsSpawns" index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 7128, 1152 )
 door_name = "0_1"
@@ -62,7 +65,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "0_4"
 state = 1
 
-[node name="Door4" parent="dorrsCpsSpawns" index="3" instance=ExtResource( 2 )]
+[node name="Door4" parent="dorrsCpsSpawns" index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 6624, 2592 )
 door_name = "0_4"
@@ -70,7 +73,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "0_1"
 state = 1
 
-[node name="Door5" parent="dorrsCpsSpawns" index="4" instance=ExtResource( 2 )]
+[node name="Door5" parent="dorrsCpsSpawns" index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 6752, 1560 )
 door_name = "0_2"
@@ -78,7 +81,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "1_0"
 state = 1
 
-[node name="Door6" parent="dorrsCpsSpawns" index="5" instance=ExtResource( 2 )]
+[node name="Door6" parent="dorrsCpsSpawns" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 7792, 1560 )
 door_name = "1_2"
@@ -86,7 +89,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "1_1"
 state = 1
 
-[node name="Door7" parent="dorrsCpsSpawns" index="6" instance=ExtResource( 2 )]
+[node name="Door7" parent="dorrsCpsSpawns" index="6" instance=ExtResource( 3 )]
 
 position = Vector2( 8688, 1152 )
 door_name = "1_1"
@@ -94,7 +97,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "1_2"
 state = 1
 
-[node name="Door10" parent="dorrsCpsSpawns" index="7" instance=ExtResource( 2 )]
+[node name="Door10" parent="dorrsCpsSpawns" index="7" instance=ExtResource( 3 )]
 
 position = Vector2( 9168, 1632 )
 door_name = "2_2"
@@ -102,7 +105,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "1_3"
 state = 1
 
-[node name="Door11" parent="dorrsCpsSpawns" index="8" instance=ExtResource( 2 )]
+[node name="Door11" parent="dorrsCpsSpawns" index="8" instance=ExtResource( 3 )]
 
 position = Vector2( 9680, 2112 )
 door_name = "2_3"
@@ -110,7 +113,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "3_0"
 state = 1
 
-[node name="Door17" parent="dorrsCpsSpawns" index="9" instance=ExtResource( 2 )]
+[node name="Door17" parent="dorrsCpsSpawns" index="9" instance=ExtResource( 3 )]
 
 position = Vector2( 10464, 672 )
 door_name = "3_0"
@@ -118,7 +121,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "2_3"
 state = 1
 
-[node name="Door8" parent="dorrsCpsSpawns" index="10" instance=ExtResource( 2 )]
+[node name="Door8" parent="dorrsCpsSpawns" index="10" instance=ExtResource( 3 )]
 
 position = Vector2( 8776, 2112 )
 door_name = "1_3"
@@ -126,7 +129,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "2_2"
 state = 1
 
-[node name="Door14" parent="dorrsCpsSpawns" index="11" instance=ExtResource( 2 )]
+[node name="Door14" parent="dorrsCpsSpawns" index="11" instance=ExtResource( 3 )]
 
 position = Vector2( 8376, 1968 )
 door_name = "cp_tank_entrance"
@@ -134,7 +137,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "cp_tank_exit"
 state = 1
 
-[node name="Door15" parent="dorrsCpsSpawns" index="12" instance=ExtResource( 2 )]
+[node name="Door15" parent="dorrsCpsSpawns" index="12" instance=ExtResource( 3 )]
 
 position = Vector2( 11208, 2592 )
 door_name = "cp_tank_exit"
@@ -142,7 +145,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "cp_tank_entrance"
 state = 1
 
-[node name="Door13" parent="dorrsCpsSpawns" index="13" instance=ExtResource( 2 )]
+[node name="Door13" parent="dorrsCpsSpawns" index="13" instance=ExtResource( 3 )]
 
 position = Vector2( 8920, 2592 )
 door_name = "2_4"
@@ -150,7 +153,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "2_0"
 state = 1
 
-[node name="Door18" parent="dorrsCpsSpawns" index="14" instance=ExtResource( 2 )]
+[node name="Door18" parent="dorrsCpsSpawns" index="14" instance=ExtResource( 3 )]
 
 position = Vector2( 11080, 2112 )
 door_name = "3_3"
@@ -158,7 +161,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "2_4_floating"
 state = 1
 
-[node name="Door19" parent="dorrsCpsSpawns" index="15" instance=ExtResource( 2 )]
+[node name="Door19" parent="dorrsCpsSpawns" index="15" instance=ExtResource( 3 )]
 
 position = Vector2( 9152, 2520 )
 door_name = "2_4_floating"
@@ -166,7 +169,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "3_3"
 state = 1
 
-[node name="Door12" parent="dorrsCpsSpawns" index="16" instance=ExtResource( 2 )]
+[node name="Door12" parent="dorrsCpsSpawns" index="16" instance=ExtResource( 3 )]
 
 position = Vector2( 10608, 1632 )
 door_name = "3_2_locked"
@@ -174,7 +177,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "3_1"
 state = 0
 
-[node name="Door20" parent="dorrsCpsSpawns" index="17" instance=ExtResource( 2 )]
+[node name="Door20" parent="dorrsCpsSpawns" index="17" instance=ExtResource( 3 )]
 
 position = Vector2( 10320, 1632 )
 door_name = "3_2"
@@ -182,7 +185,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "0_2_right"
 state = 1
 
-[node name="Door21" parent="dorrsCpsSpawns" index="18" instance=ExtResource( 2 )]
+[node name="Door21" parent="dorrsCpsSpawns" index="18" instance=ExtResource( 3 )]
 
 position = Vector2( 6848, 1560 )
 door_name = "0_2_right"
@@ -190,7 +193,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "3_2"
 state = 1
 
-[node name="Door16" parent="dorrsCpsSpawns" index="19" instance=ExtResource( 2 )]
+[node name="Door16" parent="dorrsCpsSpawns" index="19" instance=ExtResource( 3 )]
 
 position = Vector2( 10640, 1072 )
 door_name = "3_1"
@@ -198,7 +201,7 @@ dest_scene = "res://stages/w2/w2.tscn"
 dest_spawn = "3_2_locked"
 state = 1
 
-[node name="Door9" parent="dorrsCpsSpawns" index="20" instance=ExtResource( 2 )]
+[node name="Door9" parent="dorrsCpsSpawns" index="20" instance=ExtResource( 3 )]
 
 position = Vector2( 9352, 672 )
 door_name = "2_0"
@@ -208,612 +211,616 @@ state = 1
 
 [node name="special_blocks_bg" type="Node" parent="." index="2"]
 
-editor/display_folded = true
-
-[node name="eightSpikes2" parent="special_blocks_bg" index="0" instance=ExtResource( 3 )]
+[node name="eightSpikes2" parent="special_blocks_bg" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 7960, 464 )
 scale = Vector2( 1, -1 )
 
-[node name="two_Spikes3" parent="special_blocks_bg" index="1" instance=ExtResource( 4 )]
+[node name="two_Spikes3" parent="special_blocks_bg" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 7920, 528 )
 
-[node name="eightSpikes3" parent="special_blocks_bg" index="2" instance=ExtResource( 3 )]
+[node name="eightSpikes3" parent="special_blocks_bg" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 7576, 464 )
 scale = Vector2( 1, -1 )
 
-[node name="spike3" parent="special_blocks_bg" index="3" instance=ExtResource( 5 )]
+[node name="spike3" parent="special_blocks_bg" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 7584, 2512 )
 
-[node name="spike4" parent="special_blocks_bg" index="4" instance=ExtResource( 5 )]
+[node name="spike4" parent="special_blocks_bg" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 7872, 2496 )
 
-[node name="spike19" parent="special_blocks_bg" index="5" instance=ExtResource( 5 )]
+[node name="spike19" parent="special_blocks_bg" index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 10656, 2016 )
 
-[node name="spike15" parent="special_blocks_bg" index="6" instance=ExtResource( 5 )]
+[node name="spike15" parent="special_blocks_bg" index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 9936, 1552 )
 
-[node name="two_Spikes" parent="special_blocks_bg" index="7" instance=ExtResource( 4 )]
+[node name="two_Spikes" parent="special_blocks_bg" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 7488, 2512 )
 
-[node name="two_Spikes2" parent="special_blocks_bg" index="8" instance=ExtResource( 4 )]
+[node name="two_Spikes2" parent="special_blocks_bg" index="8" instance=ExtResource( 5 )]
 
 position = Vector2( 8016, 2496 )
 
-[node name="two_Spikes5" parent="special_blocks_bg" index="9" instance=ExtResource( 4 )]
+[node name="two_Spikes5" parent="special_blocks_bg" index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 10992, 1056 )
 
-[node name="two_Spikes6" parent="special_blocks_bg" index="10" instance=ExtResource( 4 )]
+[node name="two_Spikes6" parent="special_blocks_bg" index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 9648, 1056 )
 
-[node name="two_Spikes4" parent="special_blocks_bg" index="11" instance=ExtResource( 4 )]
+[node name="two_Spikes4" parent="special_blocks_bg" index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 11328, 2496 )
 
-[node name="two_Spikes7" parent="special_blocks_bg" index="12" instance=ExtResource( 4 )]
+[node name="two_Spikes7" parent="special_blocks_bg" index="12" instance=ExtResource( 5 )]
 
 position = Vector2( 10800, 2016 )
 
-[node name="eightSpikes" parent="special_blocks_bg" index="13" instance=ExtResource( 3 )]
+[node name="eightSpikes" parent="special_blocks_bg" index="13" instance=ExtResource( 4 )]
 
 position = Vector2( 7104, 2512 )
 
-[node name="eightSpikes4" parent="special_blocks_bg" index="14" instance=ExtResource( 3 )]
+[node name="eightSpikes4" parent="special_blocks_bg" index="14" instance=ExtResource( 4 )]
 
 position = Vector2( 9552, 1552 )
 
-[node name="eightSpikes5" parent="special_blocks_bg" index="15" instance=ExtResource( 3 )]
+[node name="eightSpikes5" parent="special_blocks_bg" index="15" instance=ExtResource( 4 )]
 
 position = Vector2( 9408, 1920 )
 scale = Vector2( 1, -1 )
 
-[node name="spike1" parent="special_blocks_bg" index="16" instance=ExtResource( 5 )]
+[node name="spike1" parent="special_blocks_bg" index="16" instance=ExtResource( 6 )]
 
 position = Vector2( 6912, 672 )
 
-[node name="spike6" parent="special_blocks_bg" index="17" instance=ExtResource( 5 )]
+[node name="spike6" parent="special_blocks_bg" index="17" instance=ExtResource( 6 )]
 
 position = Vector2( 7488, 1000 )
 
-[node name="spike13" parent="special_blocks_bg" index="18" instance=ExtResource( 5 )]
+[node name="spike13" parent="special_blocks_bg" index="18" instance=ExtResource( 6 )]
 
 position = Vector2( 8016, 528 )
 
-[node name="spike7" parent="special_blocks_bg" index="19" instance=ExtResource( 5 )]
+[node name="spike7" parent="special_blocks_bg" index="19" instance=ExtResource( 6 )]
 
 position = Vector2( 8152, -104 )
 scale = Vector2( 1, -1 )
 
-[node name="spike17" parent="special_blocks_bg" index="20" instance=ExtResource( 5 )]
+[node name="spike17" parent="special_blocks_bg" index="20" instance=ExtResource( 6 )]
 
 position = Vector2( 9264, 2544 )
 scale = Vector2( 1, -1 )
 
-[node name="spike18" parent="special_blocks_bg" index="21" instance=ExtResource( 5 )]
+[node name="spike18" parent="special_blocks_bg" index="21" instance=ExtResource( 6 )]
 
 position = Vector2( 8736, 2400 )
 scale = Vector2( 1, -1 )
 
-[node name="spike11" parent="special_blocks_bg" index="22" instance=ExtResource( 5 )]
+[node name="spike11" parent="special_blocks_bg" index="22" instance=ExtResource( 6 )]
 
 position = Vector2( 7824, 2208 )
 scale = Vector2( 1, -1 )
 
-[node name="spike12" parent="special_blocks_bg" index="23" instance=ExtResource( 5 )]
+[node name="spike12" parent="special_blocks_bg" index="23" instance=ExtResource( 6 )]
 
 position = Vector2( 7728, 2304 )
 scale = Vector2( 1, -1 )
 
-[node name="spike8" parent="special_blocks_bg" index="24" instance=ExtResource( 5 )]
+[node name="spike8" parent="special_blocks_bg" index="24" instance=ExtResource( 6 )]
 
 position = Vector2( 7056, 480 )
 scale = Vector2( 1, -1 )
 
-[node name="spike9" parent="special_blocks_bg" index="25" instance=ExtResource( 5 )]
+[node name="spike9" parent="special_blocks_bg" index="25" instance=ExtResource( 6 )]
 
 position = Vector2( 7200, 528 )
 rotation = 1.5708
 scale = Vector2( 1, -1 )
 
-[node name="spike10" parent="special_blocks_bg" index="26" instance=ExtResource( 5 )]
+[node name="spike20" parent="special_blocks_bg" index="26" instance=ExtResource( 6 )]
+
+position = Vector2( 7200, 576 )
+rotation = 1.5708
+scale = Vector2( 1, -1 )
+
+[node name="spike10" parent="special_blocks_bg" index="27" instance=ExtResource( 6 )]
 
 position = Vector2( 6576, 576 )
 rotation = 4.71239
 scale = Vector2( 1, -1 )
 
-[node name="spike16" parent="special_blocks_bg" index="27" instance=ExtResource( 5 )]
+[node name="spike16" parent="special_blocks_bg" index="28" instance=ExtResource( 6 )]
 
 position = Vector2( 6576, 626.985 )
 rotation = 4.71239
 scale = Vector2( 1, -1 )
 
-[node name="spike5" parent="special_blocks_bg" index="28" instance=ExtResource( 5 )]
+[node name="spike5" parent="special_blocks_bg" index="29" instance=ExtResource( 6 )]
 
 position = Vector2( 7968, 1728 )
 scale = Vector2( 1, -1 )
 
-[node name="spike14" parent="special_blocks_bg" index="29" instance=ExtResource( 5 )]
+[node name="spike14" parent="special_blocks_bg" index="30" instance=ExtResource( 6 )]
 
 position = Vector2( 8016, 1872 )
 scale = Vector2( 1, -1 )
 
-[node name="spike2" parent="special_blocks_bg" index="30" instance=ExtResource( 5 )]
+[node name="spike2" parent="special_blocks_bg" index="31" instance=ExtResource( 6 )]
 
 position = Vector2( 7192, -144 )
 scale = Vector2( 1, -1 )
 
-[node name="crush_block" parent="special_blocks_bg" index="31" instance=ExtResource( 6 )]
+[node name="crush_block" parent="special_blocks_bg" index="32" instance=ExtResource( 7 )]
 
 position = Vector2( 8256, 1632 )
 
-[node name="crush_block2" parent="special_blocks_bg" index="32" instance=ExtResource( 6 )]
+[node name="crush_block2" parent="special_blocks_bg" index="33" instance=ExtResource( 7 )]
 
 position = Vector2( 8304, 1632 )
 
-[node name="crush_block11" parent="special_blocks_bg" index="33" instance=ExtResource( 6 )]
+[node name="crush_block11" parent="special_blocks_bg" index="34" instance=ExtResource( 7 )]
 
 position = Vector2( 8352, 1968 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="crush_block12" parent="special_blocks_bg" index="34" instance=ExtResource( 6 )]
+[node name="crush_block12" parent="special_blocks_bg" index="35" instance=ExtResource( 7 )]
 
 position = Vector2( 8256, 1872 )
 
-[node name="crush_block13" parent="special_blocks_bg" index="35" instance=ExtResource( 6 )]
+[node name="crush_block13" parent="special_blocks_bg" index="36" instance=ExtResource( 7 )]
 
 position = Vector2( 8304, 1968 )
 
-[node name="crush_block14" parent="special_blocks_bg" index="36" instance=ExtResource( 6 )]
+[node name="crush_block14" parent="special_blocks_bg" index="37" instance=ExtResource( 7 )]
 
 position = Vector2( 8280, 1920 )
 
-[node name="crush_block30" parent="special_blocks_bg" index="37" instance=ExtResource( 6 )]
+[node name="crush_block30" parent="special_blocks_bg" index="38" instance=ExtResource( 7 )]
 
 position = Vector2( 6504, 2448 )
 
-[node name="crush_block31" parent="special_blocks_bg" index="38" instance=ExtResource( 6 )]
+[node name="crush_block31" parent="special_blocks_bg" index="39" instance=ExtResource( 7 )]
 
 position = Vector2( 6528, 2496 )
 
-[node name="crush_block32" parent="special_blocks_bg" index="39" instance=ExtResource( 6 )]
+[node name="crush_block32" parent="special_blocks_bg" index="40" instance=ExtResource( 7 )]
 
 position = Vector2( 6480, 2400 )
 
-[node name="crush_block34" parent="special_blocks_bg" index="40" instance=ExtResource( 6 )]
+[node name="crush_block34" parent="special_blocks_bg" index="41" instance=ExtResource( 7 )]
 
 position = Vector2( 6432, 2400 )
 
-[node name="crush_block35" parent="special_blocks_bg" index="41" instance=ExtResource( 6 )]
+[node name="crush_block35" parent="special_blocks_bg" index="42" instance=ExtResource( 7 )]
 
 position = Vector2( 6384, 2400 )
 
-[node name="crush_block33" parent="special_blocks_bg" index="42" instance=ExtResource( 6 )]
+[node name="crush_block33" parent="special_blocks_bg" index="43" instance=ExtResource( 7 )]
 
 position = Vector2( 6528, 2544 )
 
-[node name="crush_block15" parent="special_blocks_bg" index="43" instance=ExtResource( 6 )]
+[node name="crush_block15" parent="special_blocks_bg" index="44" instance=ExtResource( 7 )]
 
 position = Vector2( 8424, 1920 )
 
-[node name="crush_block16" parent="special_blocks_bg" index="44" instance=ExtResource( 6 )]
+[node name="crush_block16" parent="special_blocks_bg" index="45" instance=ExtResource( 7 )]
 
 position = Vector2( 8400, 1968 )
 
-[node name="crush_block17" parent="special_blocks_bg" index="45" instance=ExtResource( 6 )]
+[node name="crush_block17" parent="special_blocks_bg" index="46" instance=ExtResource( 7 )]
 
 position = Vector2( 8448, 1872 )
 
-[node name="crush_block8" parent="special_blocks_bg" index="46" instance=ExtResource( 6 )]
+[node name="crush_block8" parent="special_blocks_bg" index="47" instance=ExtResource( 7 )]
 
 position = Vector2( 9456, 2112 )
 
-[node name="crush_block10" parent="special_blocks_bg" index="47" instance=ExtResource( 6 )]
+[node name="crush_block10" parent="special_blocks_bg" index="48" instance=ExtResource( 7 )]
 
 position = Vector2( 9504, 2136 )
 
-[node name="crush_block23" parent="special_blocks_bg" index="48" instance=ExtResource( 6 )]
+[node name="crush_block23" parent="special_blocks_bg" index="49" instance=ExtResource( 7 )]
 
 position = Vector2( 9456, 2448 )
 
-[node name="crush_block24" parent="special_blocks_bg" index="49" instance=ExtResource( 6 )]
+[node name="crush_block24" parent="special_blocks_bg" index="50" instance=ExtResource( 7 )]
 
 position = Vector2( 9456, 2496 )
 
-[node name="crush_block20" parent="special_blocks_bg" index="50" instance=ExtResource( 6 )]
+[node name="crush_block20" parent="special_blocks_bg" index="51" instance=ExtResource( 7 )]
 
 position = Vector2( 9840, 1872 )
 
-[node name="crush_block21" parent="special_blocks_bg" index="51" instance=ExtResource( 6 )]
+[node name="crush_block21" parent="special_blocks_bg" index="52" instance=ExtResource( 7 )]
 
 position = Vector2( 9888, 1872 )
 
-[node name="crush_block22" parent="special_blocks_bg" index="52" instance=ExtResource( 6 )]
+[node name="crush_block22" parent="special_blocks_bg" index="53" instance=ExtResource( 7 )]
 
 position = Vector2( 9936, 1872 )
 
-[node name="crush_block25" parent="special_blocks_bg" index="53" instance=ExtResource( 6 )]
+[node name="crush_block25" parent="special_blocks_bg" index="54" instance=ExtResource( 7 )]
 
 position = Vector2( 10128, 624 )
 
-[node name="crush_block26" parent="special_blocks_bg" index="54" instance=ExtResource( 6 )]
+[node name="crush_block26" parent="special_blocks_bg" index="55" instance=ExtResource( 7 )]
 
 position = Vector2( 10104, 576 )
 
-[node name="crush_block27" parent="special_blocks_bg" index="55" instance=ExtResource( 6 )]
+[node name="crush_block27" parent="special_blocks_bg" index="56" instance=ExtResource( 7 )]
 
 position = Vector2( 10104, 528 )
 
-[node name="crush_block28" parent="special_blocks_bg" index="56" instance=ExtResource( 6 )]
+[node name="crush_block28" parent="special_blocks_bg" index="57" instance=ExtResource( 7 )]
 
 position = Vector2( 10056, 504 )
 
-[node name="crush_block29" parent="special_blocks_bg" index="57" instance=ExtResource( 6 )]
+[node name="crush_block29" parent="special_blocks_bg" index="58" instance=ExtResource( 7 )]
 
 position = Vector2( 10008, 480 )
 
-[node name="crush_block18" parent="special_blocks_bg" index="58" instance=ExtResource( 6 )]
+[node name="crush_block18" parent="special_blocks_bg" index="59" instance=ExtResource( 7 )]
 
 position = Vector2( 10944, 1672 )
 
-[node name="crush_block19" parent="special_blocks_bg" index="59" instance=ExtResource( 6 )]
+[node name="crush_block19" parent="special_blocks_bg" index="60" instance=ExtResource( 7 )]
 
 position = Vector2( 10896, 1648 )
 
-[node name="crush_block3" parent="special_blocks_bg" index="60" instance=ExtResource( 6 )]
+[node name="crush_block3" parent="special_blocks_bg" index="61" instance=ExtResource( 7 )]
 
 position = Vector2( 7536, -200 )
 
-[node name="crush_block4" parent="special_blocks_bg" index="61" instance=ExtResource( 6 )]
+[node name="crush_block4" parent="special_blocks_bg" index="62" instance=ExtResource( 7 )]
 
 position = Vector2( 7560, -248 )
 
-[node name="crush_block5" parent="special_blocks_bg" index="62" instance=ExtResource( 6 )]
+[node name="crush_block5" parent="special_blocks_bg" index="63" instance=ExtResource( 7 )]
 
 position = Vector2( 7584, -296 )
 
-[node name="crush_block6" parent="special_blocks_bg" index="63" instance=ExtResource( 6 )]
+[node name="crush_block6" parent="special_blocks_bg" index="64" instance=ExtResource( 7 )]
 
 position = Vector2( 7632, -296 )
 
-[node name="crush_block7" parent="special_blocks_bg" index="64" instance=ExtResource( 6 )]
+[node name="crush_block7" parent="special_blocks_bg" index="65" instance=ExtResource( 7 )]
 
 position = Vector2( 7680, -200 )
 
-[node name="crush_block9" parent="special_blocks_bg" index="65" instance=ExtResource( 6 )]
+[node name="crush_block9" parent="special_blocks_bg" index="66" instance=ExtResource( 7 )]
 
 position = Vector2( 7656, -248 )
 
-[node name="burn_block" parent="special_blocks_bg" index="66" instance=ExtResource( 7 )]
+[node name="burn_block" parent="special_blocks_bg" index="67" instance=ExtResource( 8 )]
 
 position = Vector2( 7384, 1488 )
 
-[node name="burn_block3" parent="special_blocks_bg" index="67" instance=ExtResource( 7 )]
+[node name="burn_block3" parent="special_blocks_bg" index="68" instance=ExtResource( 8 )]
 
 position = Vector2( 7408, 1536 )
 
-[node name="burn_block2" parent="special_blocks_bg" index="68" instance=ExtResource( 7 )]
+[node name="burn_block2" parent="special_blocks_bg" index="69" instance=ExtResource( 8 )]
 
 position = Vector2( 7360, 1536 )
 
-[node name="burn_block15" parent="special_blocks_bg" index="69" instance=ExtResource( 7 )]
+[node name="burn_block15" parent="special_blocks_bg" index="70" instance=ExtResource( 8 )]
 
 position = Vector2( 9616, 2456 )
 
-[node name="burn_block16" parent="special_blocks_bg" index="70" instance=ExtResource( 7 )]
+[node name="burn_block16" parent="special_blocks_bg" index="71" instance=ExtResource( 8 )]
 
 position = Vector2( 10288, 1968 )
 
-[node name="burn_block37" parent="special_blocks_bg" index="71" instance=ExtResource( 7 )]
+[node name="burn_block37" parent="special_blocks_bg" index="72" instance=ExtResource( 8 )]
 
 position = Vector2( 8536, 1872 )
 
-[node name="burn_block38" parent="special_blocks_bg" index="72" instance=ExtResource( 7 )]
+[node name="burn_block38" parent="special_blocks_bg" index="73" instance=ExtResource( 8 )]
 
 position = Vector2( 8560, 1920 )
 
-[node name="burn_block39" parent="special_blocks_bg" index="73" instance=ExtResource( 7 )]
+[node name="burn_block39" parent="special_blocks_bg" index="74" instance=ExtResource( 8 )]
 
 position = Vector2( 8608, 1920 )
 
-[node name="burn_block40" parent="special_blocks_bg" index="74" instance=ExtResource( 7 )]
+[node name="burn_block40" parent="special_blocks_bg" index="75" instance=ExtResource( 8 )]
 
 position = Vector2( 8632, 1872 )
 
-[node name="burn_block25" parent="special_blocks_bg" index="75" instance=ExtResource( 7 )]
+[node name="burn_block25" parent="special_blocks_bg" index="76" instance=ExtResource( 8 )]
 
 position = Vector2( 11184, 2016 )
 
-[node name="burn_block26" parent="special_blocks_bg" index="76" instance=ExtResource( 7 )]
+[node name="burn_block26" parent="special_blocks_bg" index="77" instance=ExtResource( 8 )]
 
 position = Vector2( 11160, 1968 )
 
-[node name="burn_block27" parent="special_blocks_bg" index="77" instance=ExtResource( 7 )]
+[node name="burn_block27" parent="special_blocks_bg" index="78" instance=ExtResource( 8 )]
 
 position = Vector2( 11136, 1920 )
 
-[node name="burn_block28" parent="special_blocks_bg" index="78" instance=ExtResource( 7 )]
+[node name="burn_block28" parent="special_blocks_bg" index="79" instance=ExtResource( 8 )]
 
 position = Vector2( 11136, 1872 )
 
-[node name="burn_block21" parent="special_blocks_bg" index="79" instance=ExtResource( 7 )]
+[node name="burn_block21" parent="special_blocks_bg" index="80" instance=ExtResource( 8 )]
 
 position = Vector2( 10264, 2016 )
 
-[node name="burn_block17" parent="special_blocks_bg" index="80" instance=ExtResource( 7 )]
+[node name="burn_block17" parent="special_blocks_bg" index="81" instance=ExtResource( 8 )]
 
 position = Vector2( 9592, 2496 )
 
-[node name="burn_block18" parent="special_blocks_bg" index="81" instance=ExtResource( 7 )]
+[node name="burn_block18" parent="special_blocks_bg" index="82" instance=ExtResource( 8 )]
 
 position = Vector2( 9640, 2496 )
 
-[node name="burn_block22" parent="special_blocks_bg" index="82" instance=ExtResource( 7 )]
+[node name="burn_block22" parent="special_blocks_bg" index="83" instance=ExtResource( 8 )]
 
 position = Vector2( 10224, 624 )
 
-[node name="burn_block23" parent="special_blocks_bg" index="83" instance=ExtResource( 7 )]
+[node name="burn_block23" parent="special_blocks_bg" index="84" instance=ExtResource( 8 )]
 
 position = Vector2( 10272, 624 )
 
-[node name="burn_block24" parent="special_blocks_bg" index="84" instance=ExtResource( 7 )]
+[node name="burn_block24" parent="special_blocks_bg" index="85" instance=ExtResource( 8 )]
 
 position = Vector2( 10320, 624 )
 
-[node name="burn_block8" parent="special_blocks_bg" index="85" instance=ExtResource( 7 )]
+[node name="burn_block8" parent="special_blocks_bg" index="86" instance=ExtResource( 8 )]
 
 position = Vector2( 8304, 1248 )
 
-[node name="burn_block9" parent="special_blocks_bg" index="86" instance=ExtResource( 7 )]
+[node name="burn_block9" parent="special_blocks_bg" index="87" instance=ExtResource( 8 )]
 
 position = Vector2( 8272, 1200 )
 
-[node name="burn_block10" parent="special_blocks_bg" index="87" instance=ExtResource( 7 )]
+[node name="burn_block10" parent="special_blocks_bg" index="88" instance=ExtResource( 8 )]
 
 position = Vector2( 9456, 1152 )
 
-[node name="burn_block11" parent="special_blocks_bg" index="88" instance=ExtResource( 7 )]
+[node name="burn_block11" parent="special_blocks_bg" index="89" instance=ExtResource( 8 )]
 
 position = Vector2( 9504, 1152 )
 
-[node name="burn_block34" parent="special_blocks_bg" index="89" instance=ExtResource( 7 )]
+[node name="burn_block34" parent="special_blocks_bg" index="90" instance=ExtResource( 8 )]
 
 position = Vector2( 10896, 1200 )
 
-[node name="burn_block35" parent="special_blocks_bg" index="90" instance=ExtResource( 7 )]
+[node name="burn_block35" parent="special_blocks_bg" index="91" instance=ExtResource( 8 )]
 
 position = Vector2( 10848, 1296 )
 
-[node name="burn_block36" parent="special_blocks_bg" index="91" instance=ExtResource( 7 )]
+[node name="burn_block36" parent="special_blocks_bg" index="92" instance=ExtResource( 8 )]
 
 position = Vector2( 10872, 1248 )
 
-[node name="burn_block19" parent="special_blocks_bg" index="92" instance=ExtResource( 7 )]
+[node name="burn_block19" parent="special_blocks_bg" index="93" instance=ExtResource( 8 )]
 
 position = Vector2( 9240, 1008 )
 
-[node name="burn_block20" parent="special_blocks_bg" index="93" instance=ExtResource( 7 )]
+[node name="burn_block20" parent="special_blocks_bg" index="94" instance=ExtResource( 8 )]
 
 position = Vector2( 9256, 1056 )
 
-[node name="burn_block29" parent="special_blocks_bg" index="94" instance=ExtResource( 7 )]
+[node name="burn_block29" parent="special_blocks_bg" index="95" instance=ExtResource( 8 )]
 
 position = Vector2( 8976, 432 )
 
-[node name="burn_block30" parent="special_blocks_bg" index="95" instance=ExtResource( 7 )]
+[node name="burn_block30" parent="special_blocks_bg" index="96" instance=ExtResource( 8 )]
 
 position = Vector2( 8952, 480 )
 
-[node name="burn_block31" parent="special_blocks_bg" index="96" instance=ExtResource( 7 )]
+[node name="burn_block31" parent="special_blocks_bg" index="97" instance=ExtResource( 8 )]
 
 position = Vector2( 8952, 528 )
 
-[node name="burn_block32" parent="special_blocks_bg" index="97" instance=ExtResource( 7 )]
+[node name="burn_block32" parent="special_blocks_bg" index="98" instance=ExtResource( 8 )]
 
 position = Vector2( 8952, 576 )
 
-[node name="burn_block33" parent="special_blocks_bg" index="98" instance=ExtResource( 7 )]
+[node name="burn_block33" parent="special_blocks_bg" index="99" instance=ExtResource( 8 )]
 
 position = Vector2( 8936, 624 )
 
-[node name="burn_block12" parent="special_blocks_bg" index="99" instance=ExtResource( 7 )]
-
-position = Vector2( 9552, 1152 )
-
-[node name="burn_block4" parent="special_blocks_bg" index="100" instance=ExtResource( 7 )]
+[node name="burn_block4" parent="special_blocks_bg" index="100" instance=ExtResource( 8 )]
 
 position = Vector2( 7984, -200 )
 
-[node name="burn_block5" parent="special_blocks_bg" index="101" instance=ExtResource( 7 )]
+[node name="burn_block5" parent="special_blocks_bg" index="101" instance=ExtResource( 8 )]
 
 position = Vector2( 7968, -248 )
 
-[node name="burn_block6" parent="special_blocks_bg" index="102" instance=ExtResource( 7 )]
+[node name="burn_block6" parent="special_blocks_bg" index="102" instance=ExtResource( 8 )]
 
 position = Vector2( 7944, -296 )
 
-[node name="burn_block7" parent="special_blocks_bg" index="103" instance=ExtResource( 7 )]
+[node name="burn_block7" parent="special_blocks_bg" index="103" instance=ExtResource( 8 )]
 
 position = Vector2( 8264, -80 )
 
-[node name="burn_block13" parent="special_blocks_bg" index="104" instance=ExtResource( 7 )]
+[node name="burn_block13" parent="special_blocks_bg" index="104" instance=ExtResource( 8 )]
 
 position = Vector2( 8312, -80 )
 
-[node name="burn_block14" parent="special_blocks_bg" index="105" instance=ExtResource( 7 )]
+[node name="burn_block14" parent="special_blocks_bg" index="105" instance=ExtResource( 8 )]
 
 position = Vector2( 8360, -80 )
 
-[node name="cow_block" parent="special_blocks_bg" index="106" instance=ExtResource( 8 )]
+[node name="cow_block" parent="special_blocks_bg" index="106" instance=ExtResource( 9 )]
 
 position = Vector2( 7680, 1152 )
 
-[node name="cow_block3" parent="special_blocks_bg" index="107" instance=ExtResource( 8 )]
+[node name="cow_block3" parent="special_blocks_bg" index="107" instance=ExtResource( 9 )]
 
 position = Vector2( 7632, 1152 )
 
-[node name="cow_block6" parent="special_blocks_bg" index="108" instance=ExtResource( 8 )]
+[node name="cow_block6" parent="special_blocks_bg" index="108" instance=ExtResource( 9 )]
 
 position = Vector2( 7104, 2232 )
 
-[node name="cow_block8" parent="special_blocks_bg" index="109" instance=ExtResource( 8 )]
+[node name="cow_block8" parent="special_blocks_bg" index="109" instance=ExtResource( 9 )]
 
 position = Vector2( 7056, 2248 )
 
-[node name="cow_block9" parent="special_blocks_bg" index="110" instance=ExtResource( 8 )]
+[node name="cow_block9" parent="special_blocks_bg" index="110" instance=ExtResource( 9 )]
 
 position = Vector2( 7008, 2232 )
 
-[node name="cow_block10" parent="special_blocks_bg" index="111" instance=ExtResource( 8 )]
+[node name="cow_block10" parent="special_blocks_bg" index="111" instance=ExtResource( 9 )]
 
 position = Vector2( 6960, 2256 )
 
-[node name="cow_block7" parent="special_blocks_bg" index="112" instance=ExtResource( 8 )]
+[node name="cow_block7" parent="special_blocks_bg" index="112" instance=ExtResource( 9 )]
 
 position = Vector2( 7152, 2256 )
 
-[node name="cow_block4" parent="special_blocks_bg" index="113" instance=ExtResource( 8 )]
+[node name="cow_block4" parent="special_blocks_bg" index="113" instance=ExtResource( 9 )]
 
 position = Vector2( 7008, 688 )
 
-[node name="cow_block5" parent="special_blocks_bg" index="114" instance=ExtResource( 8 )]
+[node name="cow_block40" parent="special_blocks_bg" index="114" instance=ExtResource( 9 )]
+
+position = Vector2( 6960, 656 )
+
+[node name="cow_block5" parent="special_blocks_bg" index="115" instance=ExtResource( 9 )]
 
 position = Vector2( 6960, 704 )
 
-[node name="cow_block2" parent="special_blocks_bg" index="115" instance=ExtResource( 8 )]
+[node name="cow_block2" parent="special_blocks_bg" index="116" instance=ExtResource( 9 )]
 
 position = Vector2( 7728, 1152 )
 
-[node name="cow_block11" parent="special_blocks_bg" index="116" instance=ExtResource( 8 )]
+[node name="cow_block11" parent="special_blocks_bg" index="117" instance=ExtResource( 9 )]
 
 position = Vector2( 8784, 1200 )
 
-[node name="cow_block12" parent="special_blocks_bg" index="117" instance=ExtResource( 8 )]
+[node name="cow_block12" parent="special_blocks_bg" index="118" instance=ExtResource( 9 )]
 
 position = Vector2( 8832, 1176 )
 
-[node name="cow_block30" parent="special_blocks_bg" index="118" instance=ExtResource( 8 )]
+[node name="cow_block30" parent="special_blocks_bg" index="119" instance=ExtResource( 9 )]
 
 position = Vector2( 8208, 624 )
 
-[node name="cow_block31" parent="special_blocks_bg" index="119" instance=ExtResource( 8 )]
+[node name="cow_block31" parent="special_blocks_bg" index="120" instance=ExtResource( 9 )]
 
 position = Vector2( 8232, 576 )
 
-[node name="cow_block32" parent="special_blocks_bg" index="120" instance=ExtResource( 8 )]
+[node name="cow_block32" parent="special_blocks_bg" index="121" instance=ExtResource( 9 )]
 
 position = Vector2( 8352, 528 )
 
-[node name="cow_block33" parent="special_blocks_bg" index="121" instance=ExtResource( 8 )]
+[node name="cow_block33" parent="special_blocks_bg" index="122" instance=ExtResource( 9 )]
 
 position = Vector2( 8304, 528 )
 
-[node name="cow_block34" parent="special_blocks_bg" index="122" instance=ExtResource( 8 )]
+[node name="cow_block34" parent="special_blocks_bg" index="123" instance=ExtResource( 9 )]
 
 position = Vector2( 8256, 528 )
 
-[node name="cow_block19" parent="special_blocks_bg" index="123" instance=ExtResource( 8 )]
+[node name="cow_block19" parent="special_blocks_bg" index="124" instance=ExtResource( 9 )]
 
 position = Vector2( 8832, 1440 )
 
-[node name="cow_block25" parent="special_blocks_bg" index="124" instance=ExtResource( 8 )]
+[node name="cow_block25" parent="special_blocks_bg" index="125" instance=ExtResource( 9 )]
 
 position = Vector2( 8976, 1440 )
 
-[node name="cow_block20" parent="special_blocks_bg" index="125" instance=ExtResource( 8 )]
+[node name="cow_block20" parent="special_blocks_bg" index="126" instance=ExtResource( 9 )]
 
 position = Vector2( 8880, 1440 )
 
-[node name="cow_block21" parent="special_blocks_bg" index="126" instance=ExtResource( 8 )]
+[node name="cow_block21" parent="special_blocks_bg" index="127" instance=ExtResource( 9 )]
 
 position = Vector2( 8928, 1440 )
 
-[node name="cow_block22" parent="special_blocks_bg" index="127" instance=ExtResource( 8 )]
+[node name="cow_block22" parent="special_blocks_bg" index="128" instance=ExtResource( 9 )]
 
 position = Vector2( 8976, 1488 )
 
-[node name="cow_block35" parent="special_blocks_bg" index="128" instance=ExtResource( 8 )]
+[node name="cow_block35" parent="special_blocks_bg" index="129" instance=ExtResource( 9 )]
 
 position = Vector2( 10560, 624 )
 
-[node name="cow_block36" parent="special_blocks_bg" index="129" instance=ExtResource( 8 )]
+[node name="cow_block36" parent="special_blocks_bg" index="130" instance=ExtResource( 9 )]
 
 position = Vector2( 10560, 576 )
 
-[node name="cow_block37" parent="special_blocks_bg" index="130" instance=ExtResource( 8 )]
+[node name="cow_block37" parent="special_blocks_bg" index="131" instance=ExtResource( 9 )]
 
 position = Vector2( 10560, 528 )
 
-[node name="cow_block38" parent="special_blocks_bg" index="131" instance=ExtResource( 8 )]
+[node name="cow_block38" parent="special_blocks_bg" index="132" instance=ExtResource( 9 )]
 
 position = Vector2( 10608, 504 )
 
-[node name="cow_block39" parent="special_blocks_bg" index="132" instance=ExtResource( 8 )]
+[node name="cow_block39" parent="special_blocks_bg" index="133" instance=ExtResource( 9 )]
 
 position = Vector2( 10656, 480 )
 
-[node name="cow_block26" parent="special_blocks_bg" index="133" instance=ExtResource( 8 )]
+[node name="cow_block26" parent="special_blocks_bg" index="134" instance=ExtResource( 9 )]
 
 position = Vector2( 10032, 1656 )
 
-[node name="cow_block27" parent="special_blocks_bg" index="134" instance=ExtResource( 8 )]
+[node name="cow_block27" parent="special_blocks_bg" index="135" instance=ExtResource( 9 )]
 
 position = Vector2( 10080, 1680 )
 
-[node name="cow_block23" parent="special_blocks_bg" index="135" instance=ExtResource( 8 )]
+[node name="cow_block23" parent="special_blocks_bg" index="136" instance=ExtResource( 9 )]
 
 position = Vector2( 8976, 1536 )
 
-[node name="cow_block24" parent="special_blocks_bg" index="136" instance=ExtResource( 8 )]
+[node name="cow_block24" parent="special_blocks_bg" index="137" instance=ExtResource( 9 )]
 
 position = Vector2( 8976, 1584 )
 
-[node name="cow_block13" parent="special_blocks_bg" index="137" instance=ExtResource( 8 )]
+[node name="cow_block13" parent="special_blocks_bg" index="138" instance=ExtResource( 9 )]
 
 position = Vector2( 8880, 1152 )
 
-[node name="cow_block16" parent="special_blocks_bg" index="138" instance=ExtResource( 8 )]
+[node name="cow_block16" parent="special_blocks_bg" index="139" instance=ExtResource( 9 )]
 
 position = Vector2( 8688, 2112 )
 
-[node name="cow_block28" parent="special_blocks_bg" index="139" instance=ExtResource( 8 )]
+[node name="cow_block28" parent="special_blocks_bg" index="140" instance=ExtResource( 9 )]
 
 position = Vector2( 9712, 2448 )
 
-[node name="cow_block29" parent="special_blocks_bg" index="140" instance=ExtResource( 8 )]
+[node name="cow_block29" parent="special_blocks_bg" index="141" instance=ExtResource( 9 )]
 
 position = Vector2( 9712, 2496 )
 
-[node name="cow_block17" parent="special_blocks_bg" index="141" instance=ExtResource( 8 )]
+[node name="cow_block17" parent="special_blocks_bg" index="142" instance=ExtResource( 9 )]
 
 position = Vector2( 8640, 2112 )
 
-[node name="cow_block18" parent="special_blocks_bg" index="142" instance=ExtResource( 8 )]
+[node name="cow_block18" parent="special_blocks_bg" index="143" instance=ExtResource( 9 )]
 
 position = Vector2( 8592, 2112 )
 
-[node name="cow_block14" parent="special_blocks_bg" index="143" instance=ExtResource( 8 )]
+[node name="cow_block14" parent="special_blocks_bg" index="144" instance=ExtResource( 9 )]
 
 position = Vector2( 9152, 1056 )
 
-[node name="cow_block15" parent="special_blocks_bg" index="144" instance=ExtResource( 8 )]
+[node name="cow_block15" parent="special_blocks_bg" index="145" instance=ExtResource( 9 )]
 
 position = Vector2( 9176, 1008 )
 
-[node name="reverse_cow_block" parent="special_blocks_bg" index="145" instance=ExtResource( 9 )]
+[node name="reverse_cow_block" parent="special_blocks_bg" index="146" instance=ExtResource( 10 )]
 
 position = Vector2( 9024, 1968 )
 
-[node name="reverse_cow_block2" parent="special_blocks_bg" index="146" instance=ExtResource( 9 )]
+[node name="reverse_cow_block2" parent="special_blocks_bg" index="147" instance=ExtResource( 10 )]
 
 position = Vector2( 9216, 1968 )
 
@@ -821,7 +828,7 @@ position = Vector2( 9216, 1968 )
 
 scale = Vector2( 3, 3 )
 mode = 0
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 8
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -846,334 +853,332 @@ __meta__ = {
 
 [node name="gems" type="Node" parent="." index="5"]
 
-editor/display_folded = true
-
 [node name="1-8" type="Node" parent="gems" index="0"]
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/1-8" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/1-8" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 5976, -424 )
 crystal_name = "1"
 
-[node name="blue_gem2" parent="gems/1-8" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/1-8" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 6032, -424 )
 crystal_name = "2"
 
-[node name="blue_gem3" parent="gems/1-8" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/1-8" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 6144, -424 )
 crystal_name = "3"
 
-[node name="blue_gem4" parent="gems/1-8" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/1-8" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 6088, -424 )
 crystal_name = "4"
 
-[node name="blue_gem5" parent="gems/1-8" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/1-8" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 6264, -424 )
 crystal_name = "5"
 
-[node name="blue_gem6" parent="gems/1-8" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/1-8" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 6208, -424 )
 crystal_name = "6"
 
-[node name="blue_gem7" parent="gems/1-8" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/1-8" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 6320, -424 )
 crystal_name = "7"
 
-[node name="blue_gem8" parent="gems/1-8" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/1-8" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 6376, -424 )
 crystal_name = "8"
 
 [node name="9-16" type="Node" parent="gems" index="1"]
 
-[node name="blue_gem" parent="gems/9-16" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/9-16" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 5976, -376 )
 crystal_name = "9"
 
-[node name="blue_gem2" parent="gems/9-16" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/9-16" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 6032, -376 )
 crystal_name = "10"
 
-[node name="blue_gem3" parent="gems/9-16" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/9-16" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 6144, -376 )
 crystal_name = "11"
 
-[node name="blue_gem4" parent="gems/9-16" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/9-16" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 6088, -376 )
 crystal_name = "12"
 
-[node name="blue_gem5" parent="gems/9-16" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/9-16" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 6264, -376 )
 crystal_name = "13"
 
-[node name="blue_gem6" parent="gems/9-16" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/9-16" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 7768, 1968 )
 crystal_name = "14"
 
-[node name="blue_gem7" parent="gems/9-16" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/9-16" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 6320, -376 )
 crystal_name = "15"
 
-[node name="blue_gem8" parent="gems/9-16" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/9-16" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 9992, 2512 )
 crystal_name = "16"
 
 [node name="17-24" type="Node" parent="gems" index="2"]
 
-[node name="blue_gem" parent="gems/17-24" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/17-24" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 10232, 2512 )
 crystal_name = "17"
 
-[node name="blue_gem2" parent="gems/17-24" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/17-24" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 10152, 2512 )
 crystal_name = "18"
 
-[node name="blue_gem3" parent="gems/17-24" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/17-24" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 10312, 2512 )
 crystal_name = "19"
 
-[node name="blue_gem4" parent="gems/17-24" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/17-24" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 10312, 2432 )
 crystal_name = "20"
 
-[node name="blue_gem5" parent="gems/17-24" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/17-24" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 10232, 2432 )
 crystal_name = "21"
 
-[node name="blue_gem6" parent="gems/17-24" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/17-24" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 10072, 2432 )
 crystal_name = "22"
 
-[node name="blue_gem7" parent="gems/17-24" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/17-24" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 7776, 1288 )
 crystal_name = "23"
 
-[node name="blue_gem8" parent="gems/17-24" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/17-24" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 10936, 1328 )
 crystal_name = "24"
 
 [node name="25-32" type="Node" parent="gems" index="3"]
 
-[node name="blue_gem" parent="gems/25-32" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/25-32" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 10152, 2432 )
 crystal_name = "25"
 
-[node name="blue_gem2" parent="gems/25-32" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/25-32" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 10072, 2512 )
 crystal_name = "26"
 
-[node name="blue_gem3" parent="gems/25-32" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/25-32" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 8336, 1744 )
 crystal_name = "27"
 
-[node name="blue_gem4" parent="gems/25-32" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/25-32" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 10296, 552 )
 crystal_name = "28"
 
-[node name="blue_gem5" parent="gems/25-32" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/25-32" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 10840, 1800 )
 crystal_name = "29"
 
-[node name="blue_gem6" parent="gems/25-32" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/25-32" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 7512, 960 )
 crystal_name = "30"
 
-[node name="blue_gem7" parent="gems/25-32" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/25-32" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 7688, 816 )
 crystal_name = "31"
 
-[node name="blue_gem8" parent="gems/25-32" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/25-32" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 8256, 2232 )
 crystal_name = "32"
 
 [node name="33-40" type="Node" parent="gems" index="4"]
 
-[node name="blue_gem" parent="gems/33-40" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/33-40" index="0" instance=ExtResource( 12 )]
 
-position = Vector2( 6208, -376 )
+position = Vector2( 8392, 968 )
 crystal_name = "33"
 
-[node name="blue_gem2" parent="gems/33-40" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/33-40" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 9992, 2432 )
 crystal_name = "34"
 
-[node name="blue_gem3" parent="gems/33-40" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/33-40" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 9760, 1528 )
 crystal_name = "35"
 
-[node name="blue_gem4" parent="gems/33-40" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/33-40" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 11040, 1008 )
 crystal_name = "36"
 
-[node name="blue_gem5" parent="gems/33-40" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/33-40" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 9696, 1000 )
 crystal_name = "37"
 
-[node name="blue_gem6" parent="gems/33-40" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/33-40" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 8608, 1904 )
 crystal_name = "38"
 
-[node name="blue_gem7" parent="gems/33-40" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/33-40" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 6472, 2496 )
 crystal_name = "39"
 
-[node name="blue_gem8" parent="gems/33-40" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/33-40" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 7968, 2552 )
 crystal_name = "40"
 
 [node name="41-48" type="Node" parent="gems" index="5"]
 
-[node name="blue_gem" parent="gems/41-48" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/41-48" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 11376, 2448 )
 crystal_name = "41"
 
-[node name="blue_gem2" parent="gems/41-48" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/41-48" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 10752, 2072 )
 crystal_name = "42"
 
-[node name="blue_gem3" parent="gems/41-48" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/41-48" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 10640, 584 )
 crystal_name = "43"
 
-[node name="blue_gem4" parent="gems/41-48" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/41-48" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 10080, 616 )
 crystal_name = "44"
 
-[node name="blue_gem5" parent="gems/41-48" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/41-48" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 10032, 560 )
 crystal_name = "45"
 
-[node name="blue_gem6" parent="gems/41-48" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/41-48" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 7056, 1960 )
 crystal_name = "46"
 
-[node name="blue_gem7" parent="gems/41-48" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/41-48" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 6544, 1584 )
 crystal_name = "47"
 
-[node name="blue_gem8" parent="gems/41-48" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/41-48" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 11224, 1936 )
-scale = Vector2( 3, 3 )
 crystal_name = "48"
 
 [node name="49-56" type="Node" parent="gems" index="6"]
 
-editor/display_folded = true
-
-[node name="blue_gem" parent="gems/49-56" index="0" instance=ExtResource( 11 )]
+[node name="blue_gem" parent="gems/49-56" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 10472, 1584 )
 crystal_name = "49"
 
-[node name="blue_gem2" parent="gems/49-56" index="1" instance=ExtResource( 11 )]
+[node name="blue_gem2" parent="gems/49-56" index="1" instance=ExtResource( 12 )]
 
-position = Vector2( 9392, 1104 )
+position = Vector2( 9520, 984 )
 crystal_name = "50"
 
-[node name="blue_gem3" parent="gems/49-56" index="2" instance=ExtResource( 11 )]
+[node name="blue_gem3" parent="gems/49-56" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 8728, 2208 )
 crystal_name = "51"
 
-[node name="blue_gem4" parent="gems/49-56" index="3" instance=ExtResource( 11 )]
+[node name="blue_gem4" parent="gems/49-56" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 7992, 2016 )
 crystal_name = "52"
 
-[node name="blue_gem5" parent="gems/49-56" index="4" instance=ExtResource( 11 )]
+[node name="blue_gem5" parent="gems/49-56" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 7992, 496 )
 crystal_name = "53"
 
-[node name="blue_gem6" parent="gems/49-56" index="5" instance=ExtResource( 11 )]
+[node name="blue_gem6" parent="gems/49-56" index="5" instance=ExtResource( 12 )]
 
 position = Vector2( 8904, 592 )
 crystal_name = "54"
 
-[node name="blue_gem7" parent="gems/49-56" index="6" instance=ExtResource( 11 )]
+[node name="blue_gem7" parent="gems/49-56" index="6" instance=ExtResource( 12 )]
 
 position = Vector2( 8920, 504 )
 crystal_name = "55"
 
-[node name="blue_gem8" parent="gems/49-56" index="7" instance=ExtResource( 11 )]
+[node name="blue_gem8" parent="gems/49-56" index="7" instance=ExtResource( 12 )]
 
 position = Vector2( 8312, 608 )
 crystal_name = "56"
 
 [node name="props" type="Node" parent="." index="6"]
 
-editor/display_folded = true
-
-[node name="checkpoint" parent="props" index="0" instance=ExtResource( 12 )]
+[node name="checkpoint" parent="props" index="0" instance=ExtResource( 13 )]
 
 position = Vector2( 6888, 648 )
 spawn_name = "cp1"
 
-[node name="checkpoint2" parent="props" index="1" instance=ExtResource( 12 )]
+[node name="checkpoint2" parent="props" index="1" instance=ExtResource( 13 )]
 
 position = Vector2( 8376, 1944 )
 spawn_name = "cp_tank"
 
-[node name="checkpoint3" parent="props" index="2" instance=ExtResource( 12 )]
+[node name="checkpoint3" parent="props" index="2" instance=ExtResource( 13 )]
 
 position = Vector2( 8928, 1608 )
 spawn_name = "cp_cow"
 
-[node name="Sign" parent="props" index="3" instance=ExtResource( 13 )]
+[node name="checkpoint4" parent="props" index="3" instance=ExtResource( 13 )]
+
+position = Vector2( 9384, 1128 )
+spawn_name = "cp_4"
+
+[node name="Sign" parent="props" index="4" instance=ExtResource( 14 )]
 
 position = Vector2( 6640, 1584 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 text = "Sorry for any inconveniance this may cause.
 "
 
-[node name="Sign2" parent="props" index="4" instance=ExtResource( 13 )]
+[node name="Sign2" parent="props" index="5" instance=ExtResource( 14 )]
 
 position = Vector2( 6912, 1584 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
@@ -1181,169 +1186,175 @@ text = "The builder who placed all of their doors off the ground has been fired.
 
 [node name="enemies" type="Node" parent="." index="7"]
 
-[node name="enemy" parent="enemies" index="0" instance=ExtResource( 14 )]
+[node name="enemy" parent="enemies" index="0" instance=ExtResource( 15 )]
 
 position = Vector2( 7680, 1976 )
 
-[node name="enemy2" parent="enemies" index="1" instance=ExtResource( 14 )]
+[node name="enemy2" parent="enemies" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 7544, 1936 )
 
-[node name="enemy3" parent="enemies" index="2" instance=ExtResource( 14 )]
+[node name="enemy3" parent="enemies" index="2" instance=ExtResource( 15 )]
 
 position = Vector2( 7536, 2024 )
 
-[node name="cow" parent="enemies" index="3" instance=ExtResource( 15 )]
+[node name="cow" parent="enemies" index="3" instance=ExtResource( 16 )]
 
 position = Vector2( 6640, 624 )
 
-[node name="cow2" parent="enemies" index="4" instance=ExtResource( 15 )]
+[node name="cow2" parent="enemies" index="4" instance=ExtResource( 16 )]
 
 position = Vector2( 6792, 2560 )
 
-[node name="cow3" parent="enemies" index="5" instance=ExtResource( 15 )]
+[node name="cow3" parent="enemies" index="5" instance=ExtResource( 16 )]
 
 position = Vector2( 9808, 1120 )
 
-[node name="walker" parent="enemies" index="6" instance=ExtResource( 16 )]
+[node name="walker" parent="enemies" index="6" instance=ExtResource( 17 )]
 
 position = Vector2( 8696, 2088 )
 
-[node name="walker2" parent="enemies" index="7" instance=ExtResource( 16 )]
+[node name="walker2" parent="enemies" index="7" instance=ExtResource( 17 )]
 
 position = Vector2( 9040, 2560 )
 
-[node name="walker3" parent="enemies" index="8" instance=ExtResource( 16 )]
+[node name="walker3" parent="enemies" index="8" instance=ExtResource( 17 )]
 
 position = Vector2( 7744, 2560 )
 
-[node name="walker4" parent="enemies" index="9" instance=ExtResource( 16 )]
+[node name="walker4" parent="enemies" index="9" instance=ExtResource( 17 )]
 
 position = Vector2( 7984, 2224 )
 
-[node name="walker5" parent="enemies" index="10" instance=ExtResource( 16 )]
+[node name="walker5" parent="enemies" index="10" instance=ExtResource( 17 )]
 
 position = Vector2( 7088, 632 )
 
-[node name="walker6" parent="enemies" index="11" instance=ExtResource( 16 )]
+[node name="walker6" parent="enemies" index="11" instance=ExtResource( 17 )]
 
 position = Vector2( 9368, 1592 )
 
-[node name="walker7" parent="enemies" index="12" instance=ExtResource( 16 )]
+[node name="walker7" parent="enemies" index="12" instance=ExtResource( 17 )]
 
 position = Vector2( 10224, 1600 )
 
-[node name="walker8" parent="enemies" index="13" instance=ExtResource( 16 )]
+[node name="walker8" parent="enemies" index="13" instance=ExtResource( 17 )]
 
 position = Vector2( 10648, 1112 )
 
-[node name="walker9" parent="enemies" index="14" instance=ExtResource( 16 )]
+[node name="walker9" parent="enemies" index="14" instance=ExtResource( 17 )]
 
 position = Vector2( 9960, 2072 )
 
-[node name="walker10" parent="enemies" index="15" instance=ExtResource( 16 )]
+[node name="walker10" parent="enemies" index="15" instance=ExtResource( 17 )]
 
 position = Vector2( 8168, 1584 )
 
-[node name="walker11" parent="enemies" index="16" instance=ExtResource( 16 )]
+[node name="walker11" parent="enemies" index="16" instance=ExtResource( 17 )]
 
 position = Vector2( 6752, 1592 )
 
-[node name="underground_bg" parent="." index="8" instance=ExtResource( 17 )]
+[node name="underground_bg" parent="." index="8" instance=ExtResource( 18 )]
 
 [node name="spawners" type="Node" parent="." index="9"]
 
-[node name="tank_spawner" parent="spawners" index="0" instance=ExtResource( 18 )]
+[node name="tank_spawner" parent="spawners" index="0" instance=ExtResource( 19 )]
 
 position = Vector2( 8184, 2544 )
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 4
 
-[node name="tank_spawner3" parent="spawners" index="1" instance=ExtResource( 18 )]
+[node name="tank_spawner3" parent="spawners" index="1" instance=ExtResource( 19 )]
 
 position = Vector2( 11584, 2496 )
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 4
 
-[node name="tank_spawner4" parent="spawners" index="2" instance=ExtResource( 18 )]
+[node name="tank_spawner4" parent="spawners" index="2" instance=ExtResource( 19 )]
 
 position = Vector2( 9936, 1832 )
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 4
 
-[node name="tank_spawner5" parent="spawners" index="3" instance=ExtResource( 18 )]
+[node name="tank_spawner5" parent="spawners" index="3" instance=ExtResource( 19 )]
 
 position = Vector2( 9216, 624 )
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 4
 
-[node name="tank_spawner2" parent="spawners" index="4" instance=ExtResource( 18 )]
+[node name="tank_spawner2" parent="spawners" index="4" instance=ExtResource( 19 )]
 
 position = Vector2( 8768, -216 )
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 4
 
-[node name="mage_spawner" parent="spawners" index="5" instance=ExtResource( 18 )]
+[node name="mage_spawner" parent="spawners" index="5" instance=ExtResource( 19 )]
 
 position = Vector2( 7640, 2072 )
 object_path = "res://objects/mage/enemy.tscn"
 respawn_delay = 4
 
-[node name="mage_spawner2" parent="spawners" index="6" instance=ExtResource( 18 )]
+[node name="mage_spawner2" parent="spawners" index="6" instance=ExtResource( 19 )]
 
 position = Vector2( 8360, -232 )
 object_path = "res://objects/mage/enemy.tscn"
 respawn_delay = 4
 
-[node name="mage_spawner3" parent="spawners" index="7" instance=ExtResource( 18 )]
+[node name="mage_spawner3" parent="spawners" index="7" instance=ExtResource( 19 )]
 
 position = Vector2( 8568, 1112 )
 object_path = "res://objects/mage/enemy.tscn"
 respawn_delay = 4
 
-[node name="mage_spawner4" parent="spawners" index="8" instance=ExtResource( 18 )]
+[node name="mage_spawner4" parent="spawners" index="8" instance=ExtResource( 19 )]
 
 position = Vector2( 9840, 2088 )
 object_path = "res://objects/mage/enemy.tscn"
 respawn_delay = 4
 
-[node name="walker_spawner" parent="spawners" index="9" instance=ExtResource( 18 )]
+[node name="mage_spawner5" parent="spawners" index="9" instance=ExtResource( 19 )]
+
+position = Vector2( 9992, 1112 )
+object_path = "res://objects/mage/enemy.tscn"
+respawn_delay = 4
+
+[node name="walker_spawner" parent="spawners" index="10" instance=ExtResource( 19 )]
 
 position = Vector2( 9136, 1992 )
 object_path = "res://objects/walker/walker.tscn"
 respawn_delay = 4
 
-[node name="walker_spawner2" parent="spawners" index="10" instance=ExtResource( 18 )]
+[node name="walker_spawner2" parent="spawners" index="11" instance=ExtResource( 19 )]
 
 position = Vector2( 7752, -400 )
 object_path = "res://objects/walker/walker.tscn"
 respawn_delay = 4
 
-[node name="cow_spawner" parent="spawners" index="11" instance=ExtResource( 18 )]
+[node name="cow_spawner" parent="spawners" index="12" instance=ExtResource( 19 )]
 
 position = Vector2( 7928, -200 )
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 4
 
-[node name="cow_spawner5" parent="spawners" index="12" instance=ExtResource( 18 )]
+[node name="cow_spawner5" parent="spawners" index="13" instance=ExtResource( 19 )]
 
 position = Vector2( 9464, 592 )
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 4
 
-[node name="cow_spawner2" parent="spawners" index="13" instance=ExtResource( 18 )]
+[node name="cow_spawner2" parent="spawners" index="14" instance=ExtResource( 19 )]
 
 position = Vector2( 8824, 1592 )
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 4
 
-[node name="cow_spawner3" parent="spawners" index="14" instance=ExtResource( 18 )]
+[node name="cow_spawner3" parent="spawners" index="15" instance=ExtResource( 19 )]
 
 position = Vector2( 11200, 1104 )
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 4
 
-[node name="cow_spawner4" parent="spawners" index="15" instance=ExtResource( 18 )]
+[node name="cow_spawner4" parent="spawners" index="16" instance=ExtResource( 19 )]
 
 position = Vector2( 10976, 2072 )
 object_path = "res://objects/cow/cow.tscn"

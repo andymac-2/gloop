@@ -12,5 +12,6 @@ func _ready ():
 func _on_key_body_entered(body):
 	var scene = scene_transition.scene_to
 	if not savegame.is_key_taken(scene, key_name):
+		$sound.play()
 		$anim.play("get")
 		savegame.take_key(scene, key_name)

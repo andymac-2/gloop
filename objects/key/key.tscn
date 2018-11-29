@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/key/key.gd" type="Script" id=1]
 [ext_resource path="res://sprites/objects.png" type="Texture" id=2]
+[ext_resource path="res://objects/key/sound.wav" type="AudioStream" id=3]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 
 resource_name = "get"
 length = 1.0
@@ -48,7 +49,7 @@ tracks/2/keys = {
 "values": [ 25 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 
 length = 1.2
 loop = true
@@ -83,7 +84,7 @@ tracks/1/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 8 )
 
-[node name="key" type="Area2D" index="0"]
+[node name="key" type="Area2D"]
 
 scale = Vector2( 3, 3 )
 input_pickable = true
@@ -122,13 +123,24 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/get = SubResource( 4 )
-anims/spin = SubResource( 5 )
+anims/get = SubResource( 1 )
+anims/spin = SubResource( 2 )
 blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 
 shape = SubResource( 3 )
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="_on_key_body_entered"]
 

@@ -13,5 +13,6 @@ func _ready ():
 func _on_green_gem_body_entered(body):
 	var scene = scene_transition.scene_to
 	if not savegame.is_green_gem_taken(scene, crystal_name):
+		$sound.play()
 		$anim.play("get")
 		savegame.take_green_gem(scene, crystal_name)

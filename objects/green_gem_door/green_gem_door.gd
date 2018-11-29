@@ -42,9 +42,11 @@ func enter():
 		savegame.unlock_door(scene, door_name)
 		# transition occurs as part of animation
 		state = UNLOCKING
+		$sound_unlock.play()
 		$poof.play("unlock")
 	#TODO: if locked play sound or visual cue that door is locked.
 	if UNLOCKED == state:
+		$sound_open.play()
 		_transition ()
 
 func _unlock():

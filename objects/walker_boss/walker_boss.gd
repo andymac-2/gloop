@@ -72,10 +72,12 @@ func crush ():
 	if hp > 0:
 		hp -= 1
 		state = REELING
+		$sound_hurt.play()
 		$invincibility.start()
 		$flash_timer.start()
 		return
 		
+	$sound_destroy.play()
 	_pre_die()
 
 func _integrate_forces(s):

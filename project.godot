@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 savegame="*res://admin/savegame.tscn"
 scene_transition="*res://objects/scene_transition/scene_transition.tscn"
 hud="*res://admin/HUD.tscn"
+music="*res://Audio/music.tscn"
 
 [display]
 

@@ -1,27 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://objects/spikes/eight_spikes.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tiles/tileset.res" type="TileSet" id=2]
-[ext_resource path="res://objects/reverse_cow_block/reverse_cow_block.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/spawn_point/spawn_point.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/walker_boss/walker_boss.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/spawner/spawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/stage_music.gd" type="Script" id=1]
+[ext_resource path="res://objects/spikes/eight_spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tiles/tileset.res" type="TileSet" id=3]
+[ext_resource path="res://objects/reverse_cow_block/reverse_cow_block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/blue_gem/blue_gem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/spawn_point/spawn_point.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/walker_boss/walker_boss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/spawner/spawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gfx/parallax_bg.tscn" type="PackedScene" id=9]
 
-[node name="stage" type="Node"]
+[node name="stage" type="Node" index="0"]
 
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 6288.0 ]
 }
+song = "boss_fight"
 
 [node name="special_blocks_bg" type="Node" parent="." index="0"]
 
-[node name="eightSpikes" parent="special_blocks_bg" index="0" instance=ExtResource( 1 )]
+[node name="eightSpikes" parent="special_blocks_bg" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 528, 6336 )
 
-[node name="eightSpikes2" parent="special_blocks_bg" index="1" instance=ExtResource( 1 )]
+[node name="eightSpikes2" parent="special_blocks_bg" index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 1296, 6336 )
 
@@ -29,7 +32,7 @@ position = Vector2( 1296, 6336 )
 
 scale = Vector2( 3, 3 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 8
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -54,43 +57,43 @@ __meta__ = {
 
 editor/display_folded = true
 
-[node name="reverse_cow_block" parent="special_blocks_fg" index="0" instance=ExtResource( 3 )]
+[node name="reverse_cow_block" parent="special_blocks_fg" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 672, 6096 )
 
-[node name="reverse_cow_block8" parent="special_blocks_fg" index="1" instance=ExtResource( 3 )]
+[node name="reverse_cow_block8" parent="special_blocks_fg" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 6192 )
 
-[node name="reverse_cow_block9" parent="special_blocks_fg" index="2" instance=ExtResource( 3 )]
+[node name="reverse_cow_block9" parent="special_blocks_fg" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 1344, 6000 )
 
-[node name="reverse_cow_block12" parent="special_blocks_fg" index="3" instance=ExtResource( 3 )]
+[node name="reverse_cow_block12" parent="special_blocks_fg" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 768, 6192 )
 
-[node name="reverse_cow_block13" parent="special_blocks_fg" index="4" instance=ExtResource( 3 )]
+[node name="reverse_cow_block13" parent="special_blocks_fg" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 1488, 6096 )
 
-[node name="reverse_cow_block15" parent="special_blocks_fg" index="5" instance=ExtResource( 3 )]
+[node name="reverse_cow_block15" parent="special_blocks_fg" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 672, 5904 )
 
-[node name="reverse_cow_block7" parent="special_blocks_fg" index="6" instance=ExtResource( 3 )]
+[node name="reverse_cow_block7" parent="special_blocks_fg" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 1392, 6192 )
 
-[node name="reverse_cow_block10" parent="special_blocks_fg" index="7" instance=ExtResource( 3 )]
+[node name="reverse_cow_block10" parent="special_blocks_fg" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 1488, 5904 )
 
-[node name="reverse_cow_block11" parent="special_blocks_fg" index="8" instance=ExtResource( 3 )]
+[node name="reverse_cow_block11" parent="special_blocks_fg" index="8" instance=ExtResource( 4 )]
 
 position = Vector2( 816, 6192 )
 
-[node name="reverse_cow_block16" parent="special_blocks_fg" index="9" instance=ExtResource( 3 )]
+[node name="reverse_cow_block16" parent="special_blocks_fg" index="9" instance=ExtResource( 4 )]
 
 position = Vector2( 816, 6000 )
 
@@ -102,41 +105,41 @@ editor/display_folded = true
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/1-8" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/1-8" index="0" instance=ExtResource( 5 )]
 
 crystal_name = "1"
 
-[node name="blue_gem2" parent="gems/1-8" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/1-8" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 0 )
 crystal_name = "2"
 
-[node name="blue_gem3" parent="gems/1-8" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/1-8" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 0 )
 crystal_name = "3"
 
-[node name="blue_gem4" parent="gems/1-8" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/1-8" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 0 )
 crystal_name = "4"
 
-[node name="blue_gem5" parent="gems/1-8" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/1-8" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 0 )
 crystal_name = "5"
 
-[node name="blue_gem6" parent="gems/1-8" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/1-8" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 0 )
 crystal_name = "6"
 
-[node name="blue_gem7" parent="gems/1-8" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/1-8" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 0 )
 crystal_name = "7"
 
-[node name="blue_gem8" parent="gems/1-8" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/1-8" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 0 )
 crystal_name = "8"
@@ -145,42 +148,42 @@ crystal_name = "8"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/9-16" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/9-16" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 48 )
 crystal_name = "9"
 
-[node name="blue_gem2" parent="gems/9-16" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/9-16" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 48 )
 crystal_name = "10"
 
-[node name="blue_gem3" parent="gems/9-16" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/9-16" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 48 )
 crystal_name = "11"
 
-[node name="blue_gem4" parent="gems/9-16" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/9-16" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 48 )
 crystal_name = "12"
 
-[node name="blue_gem5" parent="gems/9-16" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/9-16" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 48 )
 crystal_name = "13"
 
-[node name="blue_gem6" parent="gems/9-16" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/9-16" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 48 )
 crystal_name = "14"
 
-[node name="blue_gem7" parent="gems/9-16" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/9-16" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 48 )
 crystal_name = "15"
 
-[node name="blue_gem8" parent="gems/9-16" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/9-16" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 48 )
 crystal_name = "16"
@@ -189,42 +192,42 @@ crystal_name = "16"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/17-24" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/17-24" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 96 )
 crystal_name = "17"
 
-[node name="blue_gem2" parent="gems/17-24" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/17-24" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 96 )
 crystal_name = "18"
 
-[node name="blue_gem3" parent="gems/17-24" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/17-24" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 96 )
 crystal_name = "19"
 
-[node name="blue_gem4" parent="gems/17-24" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/17-24" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 96 )
 crystal_name = "20"
 
-[node name="blue_gem5" parent="gems/17-24" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/17-24" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 96 )
 crystal_name = "21"
 
-[node name="blue_gem6" parent="gems/17-24" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/17-24" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 96 )
 crystal_name = "22"
 
-[node name="blue_gem7" parent="gems/17-24" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/17-24" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 96 )
 crystal_name = "23"
 
-[node name="blue_gem8" parent="gems/17-24" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/17-24" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 96 )
 crystal_name = "24"
@@ -233,42 +236,42 @@ crystal_name = "24"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/25-32" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/25-32" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 96 )
 crystal_name = "25"
 
-[node name="blue_gem2" parent="gems/25-32" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/25-32" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 96 )
 crystal_name = "26"
 
-[node name="blue_gem3" parent="gems/25-32" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/25-32" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 96 )
 crystal_name = "27"
 
-[node name="blue_gem4" parent="gems/25-32" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/25-32" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 96 )
 crystal_name = "28"
 
-[node name="blue_gem5" parent="gems/25-32" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/25-32" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 96 )
 crystal_name = "29"
 
-[node name="blue_gem6" parent="gems/25-32" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/25-32" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 96 )
 crystal_name = "30"
 
-[node name="blue_gem7" parent="gems/25-32" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/25-32" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 96 )
 crystal_name = "31"
 
-[node name="blue_gem8" parent="gems/25-32" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/25-32" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 96 )
 crystal_name = "32"
@@ -277,42 +280,42 @@ crystal_name = "32"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/33-40" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/33-40" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 240 )
 crystal_name = "33"
 
-[node name="blue_gem2" parent="gems/33-40" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/33-40" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 240 )
 crystal_name = "34"
 
-[node name="blue_gem3" parent="gems/33-40" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/33-40" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 240 )
 crystal_name = "35"
 
-[node name="blue_gem4" parent="gems/33-40" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/33-40" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 240 )
 crystal_name = "36"
 
-[node name="blue_gem5" parent="gems/33-40" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/33-40" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 240 )
 crystal_name = "37"
 
-[node name="blue_gem6" parent="gems/33-40" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/33-40" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 240 )
 crystal_name = "38"
 
-[node name="blue_gem7" parent="gems/33-40" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/33-40" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 240 )
 crystal_name = "39"
 
-[node name="blue_gem8" parent="gems/33-40" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/33-40" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 240 )
 crystal_name = "40"
@@ -321,42 +324,42 @@ crystal_name = "40"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/41-48" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/41-48" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 144 )
 crystal_name = "41"
 
-[node name="blue_gem2" parent="gems/41-48" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/41-48" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 144 )
 crystal_name = "42"
 
-[node name="blue_gem3" parent="gems/41-48" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/41-48" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 144 )
 crystal_name = "43"
 
-[node name="blue_gem4" parent="gems/41-48" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/41-48" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 144 )
 crystal_name = "44"
 
-[node name="blue_gem5" parent="gems/41-48" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/41-48" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 144 )
 crystal_name = "45"
 
-[node name="blue_gem6" parent="gems/41-48" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/41-48" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 144 )
 crystal_name = "46"
 
-[node name="blue_gem7" parent="gems/41-48" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/41-48" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 144 )
 crystal_name = "47"
 
-[node name="blue_gem8" parent="gems/41-48" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/41-48" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 144 )
 crystal_name = "48"
@@ -365,42 +368,42 @@ crystal_name = "48"
 
 editor/display_folded = true
 
-[node name="blue_gem" parent="gems/49-56" index="0" instance=ExtResource( 4 )]
+[node name="blue_gem" parent="gems/49-56" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0, 192 )
 crystal_name = "49"
 
-[node name="blue_gem2" parent="gems/49-56" index="1" instance=ExtResource( 4 )]
+[node name="blue_gem2" parent="gems/49-56" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 56, 192 )
 crystal_name = "50"
 
-[node name="blue_gem3" parent="gems/49-56" index="2" instance=ExtResource( 4 )]
+[node name="blue_gem3" parent="gems/49-56" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 168, 192 )
 crystal_name = "51"
 
-[node name="blue_gem4" parent="gems/49-56" index="3" instance=ExtResource( 4 )]
+[node name="blue_gem4" parent="gems/49-56" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 112, 192 )
 crystal_name = "52"
 
-[node name="blue_gem5" parent="gems/49-56" index="4" instance=ExtResource( 4 )]
+[node name="blue_gem5" parent="gems/49-56" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 288, 192 )
 crystal_name = "53"
 
-[node name="blue_gem6" parent="gems/49-56" index="5" instance=ExtResource( 4 )]
+[node name="blue_gem6" parent="gems/49-56" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 232, 192 )
 crystal_name = "54"
 
-[node name="blue_gem7" parent="gems/49-56" index="6" instance=ExtResource( 4 )]
+[node name="blue_gem7" parent="gems/49-56" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 344, 192 )
 crystal_name = "55"
 
-[node name="blue_gem8" parent="gems/49-56" index="7" instance=ExtResource( 4 )]
+[node name="blue_gem8" parent="gems/49-56" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 192 )
 crystal_name = "56"
@@ -409,13 +412,13 @@ crystal_name = "56"
 
 editor/display_folded = true
 
-[node name="spawn_point" parent="props" index="0" instance=ExtResource( 5 )]
+[node name="spawn_point" parent="props" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 936, 6080 )
 
 [node name="enemies" type="Node" parent="." index="5"]
 
-[node name="walker" parent="enemies" index="0" instance=ExtResource( 6 )]
+[node name="walker" parent="enemies" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 1104, 6192 )
 green_gem_name = "w1_boss_gem"
@@ -423,35 +426,35 @@ door_name = "w1_boss_room_exit"
 dest_scene = "res://stages/w1/w1.tscn"
 dest_spawn = "w1_boss_door"
 
-[node name="spawner" parent="enemies" index="1" instance=ExtResource( 7 )]
+[node name="spawner" parent="enemies" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 928, 6224 )
 _sections_unfolded = [ "Transform" ]
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 3
 
-[node name="spawner2" parent="enemies" index="2" instance=ExtResource( 7 )]
+[node name="spawner2" parent="enemies" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 1264, 6224 )
 _sections_unfolded = [ "Transform" ]
 object_path = "res://objects/cow/cow.tscn"
 respawn_delay = 3
 
-[node name="spawner3" parent="enemies" index="3" instance=ExtResource( 7 )]
+[node name="spawner3" parent="enemies" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 904, 5760 )
 _sections_unfolded = [ "Transform" ]
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 3
 
-[node name="spawner4" parent="enemies" index="4" instance=ExtResource( 7 )]
+[node name="spawner4" parent="enemies" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 1240, 5760 )
 _sections_unfolded = [ "Transform" ]
 object_path = "res://objects/tank/tank.tscn"
 respawn_delay = 3
 
-[node name="parallax_bg" parent="." index="6" instance=ExtResource( 8 )]
+[node name="parallax_bg" parent="." index="6" instance=ExtResource( 9 )]
 
 _sections_unfolded = [ "Pause", "Scroll" ]
 

@@ -57,6 +57,9 @@ func _pause_and_shoot ():
 func _shoot ():
 	var bi = bullet.instance()
 	var ss
+	
+	$sound_shoot.play()
+	
 	if _is_facing_right():
 		ss = 1.0
 	else:

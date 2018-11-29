@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/npc_kid/NPC_Kid.gd" type="Script" id=1]
 [ext_resource path="res://sprites/objects.png" type="Texture" id=2]
+[ext_resource path="res://objects/npc_kid/sound.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -78,7 +79,7 @@ tracks/0/keys = {
 "values": [ 64, 65 ]
 }
 
-[node name="NPC_kid" type="Area2D" index="0"]
+[node name="NPC_kid" type="Area2D"]
 
 pause_mode = 2
 scale = Vector2( 3, 3 )
@@ -171,6 +172,17 @@ vframes = 16
 hframes = 16
 frame = 65
 _sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="sound" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="_on_Sign_body_entered"]
 

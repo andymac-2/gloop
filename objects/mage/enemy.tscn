@@ -2,8 +2,8 @@
 
 [ext_resource path="res://objects/mage/enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies.png" type="Texture" id=2]
-[ext_resource path="res://Audio/sound_hit.wav" type="AudioStream" id=3]
-[ext_resource path="res://Audio/sound_explode.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/enemy_destroy.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -216,7 +216,7 @@ cast_to = Vector2( 0, 60 )
 collision_mask = 3
 _sections_unfolded = [ "Transform" ]
 
-[node name="sound_hit" type="AudioStreamPlayer2D" parent="." index="9"]
+[node name="sound_shoot" type="AudioStreamPlayer2D" parent="." index="9"]
 
 stream = ExtResource( 3 )
 volume_db = 0.0

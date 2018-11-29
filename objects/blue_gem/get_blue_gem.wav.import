@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/get_blue_gem.wav-bba086af559d5c863cf9ff966eb42ef8.sample"
+
+[deps]
+
+source_file="res://objects/blue_gem/get_blue_gem.wav"
+dest_files=[ "res://.import/get_blue_gem.wav-bba086af559d5c863cf9ff966eb42ef8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
